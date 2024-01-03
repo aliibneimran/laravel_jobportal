@@ -32,7 +32,7 @@
                       <div class="col-lg-4 col-md-6 col-sm-12 mx-auto">
                         <div class="form-login-cover">
                           <div class="text-center">
-                            <h2 class="mt-10 mb-5 text-brand-1">Start for free Today</h2>
+                            <h2 class="mt-10 mb-5 text-brand-1">Register</h2>
 
                           </div>
                         </div>

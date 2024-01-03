@@ -40,7 +40,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('backend.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -52,26 +52,26 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-// //frontend
-// Route::get('/',[FrontendHomeController::class,'index']);
-// Route::get('/jobs',[FrontendJobListController::class,'index']);
-// Route::get('/job-details',[FrontendJobDetailsController::class,'index']);
-// Route::get('/companies',[FrontendCompanyController::class,'index']);
-// Route::get('/company-details',[FrontendCompanyDetailsController::class,'index']);
-// Route::get('/candidates',[FrontendCandidateController::class,'index']);
-// Route::get('/candidate-details',[FrontendCandidateDetailsController::class,'index']);
-// Route::get('/candidate-profile',[FrontendCandidateProfileController::class,'index']);
-// // Route::get('/register',[FrontendRegisterController::class,'index']);
-// // Route::get('/signin',[FrontendLoginController::class,'index']);
+//frontend
+Route::get('/',[FrontendHomeController::class,'index']);
+Route::get('/jobs',[FrontendJobListController::class,'index']);
+Route::get('/job-details',[FrontendJobDetailsController::class,'index']);
+Route::get('/companies',[FrontendCompanyController::class,'index']);
+Route::get('/company-details',[FrontendCompanyDetailsController::class,'index']);
+Route::get('/candidates',[FrontendCandidateController::class,'index']);
+Route::get('/candidate-details',[FrontendCandidateDetailsController::class,'index']);
+Route::get('/candidate-profile',[FrontendCandidateProfileController::class,'index']);
+// Route::get('/register',[FrontendRegisterController::class,'index']);
+// Route::get('/signin',[FrontendLoginController::class,'index']);
 
-// //backend
-// Route::get('/admin',[BackendHomeController::class,'index']);
-// Route::get('/all-candidates',[BackendCandidateController::class,'index']);
-// Route::get('/all-companies',[BackendCompanyController::class,'index']);
-// Route::get('/all-jobs',[BackendJobController::class,'index']);
-// Route::get('/profile',[BackendProfileController::class,'index']);
-// Route::get('/post-job',[BackendJobPostController::class,'index']);
-// Route::get('/categories',[BackendCategoryController::class,'index']);
-// Route::get('/add-category',[BackendCategoryController::class,'add']);
-// Route::get('/payments',[BackendPaymentController::class,'index']);
+//backend
+Route::get('/admin',[BackendHomeController::class,'index']);
+Route::get('/all-candidates',[BackendCandidateController::class,'index']);
+Route::get('/all-companies',[BackendCompanyController::class,'index']);
+Route::get('/all-jobs',[BackendJobController::class,'index']);
+Route::get('/profile',[BackendProfileController::class,'index']);
+Route::get('/post-job',[BackendJobPostController::class,'index']);
+Route::get('/categories',[BackendCategoryController::class,'index']);
+Route::get('/add-category',[BackendCategoryController::class,'add']);
+Route::get('/payments',[BackendPaymentController::class,'index']);
 

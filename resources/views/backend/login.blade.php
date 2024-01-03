@@ -32,32 +32,41 @@
                                             <div class="col-lg-4 col-md-6 col-sm-12 mx-auto">
                                                 <div class="form-login-cover">
                                                     <div class="text-center">
-                                                        <h2 class="mt-10 mb-5 text-brand-1">Member Login</h2>
-                                                        
-                                                        </div>
+                                                        <h2 class="mt-10 mb-5 text-brand-1">Login</h2>
+
                                                     </div>
-                                                    <form class="login-register text-start mt-20" action="#">
-                                                        <div class="form-group">
-                                                            <label class="form-label" for="input-1">Email
-                                                                address *</label>
-                                                            <input class="form-control" id="input-1" type="text" required="" name="fullname" placeholder="Steven Job">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="form-label" for="input-4">Password *</label>
-                                                            <input class="form-control" id="input-4" type="password" required="" name="password" placeholder="************">
-                                                        </div>
-                                                        <div class="login_footer form-group d-flex justify-content-between">
-                                                            <label class="cb-container">
-                                                                <input type="checkbox"><span class="text-small">{{
-                                                                    __('Remember me') }}</span><span class="checkmark"></span>
-                                                            </label><a class="text-muted" href="#">Forgot Password</a>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <button class="btn btn-brand-1 hover-up w-100" type="submit" name="login">Login</button>
-                                                        </div>
-                                                        <div class="text-muted text-center">Don't have an Account? <a href="registration">Sign up</a></div>
-                                                    </form>
                                                 </div>
+                                                @if ($errors->any())
+                                                <div class="alert alert-danger">
+                                                    <ul>
+                                                        @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                                @endif
+                                                <form class="login-register text-start mt-20" method="POST" action="{{ route('login') }}">
+                                                    @csrf
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="input-1">Email
+                                                            address *</label>
+                                                        <input class="form-control" id="input-1" type="email" required="" name="email" placeholder="example@gmail.com">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="input-4">Password *</label>
+                                                        <input class="form-control" id="input-4" type="password" required="" name="password" placeholder="************">
+                                                    </div>
+                                                    <div class="login_footer form-group d-flex justify-content-between">
+                                                        <label class="cb-container">
+                                                            <input type="checkbox"><span class="text-small">{{
+                                                                    __('Remember me') }}</span><span class="checkmark"></span>
+                                                        </label><a class="text-muted" href="#">Forgot Password</a>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button class="btn btn-brand-1 hover-up w-100" type="submit" name="login">Login</button>
+                                                    </div>
+                                                    <div class="text-muted text-center">Don't have an Account? <a href="register">Sign up</a></div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -67,6 +76,7 @@
                     </div>
                 </div>
             </div>
+        </div>
 
         </div>
     </main>

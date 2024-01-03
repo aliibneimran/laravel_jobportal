@@ -7,14 +7,12 @@
       </li>
       <li> <a class="dashboard2" href="/all-companies"><img src="{{asset('backend/assets/imgs/page/dashboard/recruiters.svg')}}" alt="jobBox"><span class="name">Companies</span></a>
       </li>
-      <li> <a class="dashboard2" href="/all-jobs"><img src="{{asset('backend/assets/imgs/page/dashboard/jobs.svg')}}" alt="jobBox"><span class="name">All Jobs</span></a>
+      <li> <a class="dashboard2" href="{{URL('all-jobs')}}"><img src="{{asset('backend/assets/imgs/page/dashboard/jobs.svg')}}" alt="jobBox"><span class="name">All Jobs</span></a>
       </li>
       <li> <a class="dashboard2" href="/categories"><img src="{{asset('backend/assets/imgs/page/dashboard/folder-plus.svg')}}" alt="jobBox"><span class="name">Categories</span></a>
       </li>
       <li> <a class="dashboard2" href="/payments"><img src="{{asset('backend/assets/imgs/page/dashboard/credit-card.svg')}}" alt="jobBox"><span class="name">Payments</span></a>
       </li>
-      <!-- <li> <a class="dashboard2" href="tasks"><img src="backend/assets/imgs/page/dashboard/tasks.svg" alt="jobBox"><span class="name">Tasks List</span></a>
-      </li> -->
       <li> <a class="dashboard2" href="/profile"><img src="{{asset('backend/assets/imgs/page/dashboard/profiles.svg')}}" alt="jobBox"><span class="name">My Profiles</span></a>
       </li>
       <!-- <li> <a class="dashboard2" href="resume"><img src="backend/assets/imgs/page/dashboard/cv-manage.svg" alt="jobBox"><span class="name">CV Manage</span></a>
