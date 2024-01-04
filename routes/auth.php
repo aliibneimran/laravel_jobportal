@@ -9,7 +9,8 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
-use App\Http\Controllers\JobController;
+use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\JobController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -57,6 +58,22 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
+
+    //Category
+    Route::get('catagories', [CategoryController::class, 'index'])
+                ->name('categories.index'); 
+    Route::get('catagories/create', [CategoryController::class, 'create'])
+                ->name('categories.create');
+    Route::post('catagories/store', [CategoryController::class, 'store'])
+                ->name('categories.store');
+    Route::get('catagories/edit{id}', [CategoryController::class, 'edit'])
+                ->name('categories.edit');
+    Route::get('catagories/update', [CategoryController::class, 'update'])
+                ->name('categories.update');
+    Route::get('catagories/delete{id}', [CategoryController::class, 'delete'])
+                ->name('categories.delete');
+                
+                
     Route::get('jobs', [JobController::class, 'index'])
                 ->name('products');
     Route::get('jobs', [JobController::class, 'create'])

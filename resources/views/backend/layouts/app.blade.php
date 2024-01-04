@@ -12,6 +12,7 @@
     <meta name="keywords" content="index, page">
     <meta name="author" content="">
     <link rel="shortcut icon" type="image/x-icon" href="backend/assets/imgs/template/favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link href="{{asset('backend/assets/css/style.css')}}" rel="stylesheet">
     <title>@yield('title') </title>
   </head>
@@ -46,6 +47,10 @@
     <script src="{{asset('backend/assets/js/plugins/charts/Animated.js')}}"></script>
     <script src="{{asset('backend/assets/js/plugins/armcharts5-script.js')}}"></script>
     <script src="{{asset('backend/assets/js/main.js')}}"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    
+
     <!-- {{asset('')}} -->
   </body>
 </html>

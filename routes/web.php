@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -72,6 +73,6 @@ Route::get('/all-jobs',[BackendJobController::class,'index']);
 Route::get('/profile',[BackendProfileController::class,'index']);
 Route::get('/post-job',[BackendJobPostController::class,'index']);
 Route::get('/categories',[BackendCategoryController::class,'index']);
-Route::get('/add-category',[BackendCategoryController::class,'add']);
+Route::get('/add-category',[BackendCategoryController::class,'create']);
 Route::get('/payments',[BackendPaymentController::class,'index']);
 
