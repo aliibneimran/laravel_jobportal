@@ -12,8 +12,8 @@
   <meta name="description" content="Index page">
   <meta name="keywords" content="index, page">
   <meta name="author" content="">
-  <link rel="shortcut icon" type="image/x-icon" href="assets/imgs/template/favicon.svg">
-  <link href="assets/css/style.css?version=4.1" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/imgs/template/favicon.svg')}}">
+  <link href="{{asset('assets/css/style.css?version=4.1')}}" rel="stylesheet">
   <title>@yield('title')</title>
 </head>
 
@@ -21,7 +21,7 @@
   <div id="preloader-active">
     <div class="preloader d-flex align-items-center justify-content-center">
       <div class="preloader-inner position-relative">
-        <div class="text-center"><img src="assets/imgs/template/loading.gif" alt="jobBox"></div>
+        <div class="text-center"><img src="{{asset('assets/imgs/template/loading.gif')}}" alt="jobBox"></div>
       </div>
     </div>
   </div>
@@ -30,20 +30,20 @@
   @yield('content')
   @include('frontend.layouts.footer')
 
-  <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
-  <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
-  <script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
-  <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/plugins/waypoints.js"></script>
-  <script src="assets/js/plugins/wow.js"></script>
-  <script src="assets/js/plugins/magnific-popup.js"></script>
-  <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="assets/js/plugins/select2.min.js"></script>
-  <script src="assets/js/plugins/isotope.js"></script>
-  <script src="assets/js/plugins/scrollup.js"></script>
-  <script src="assets/js/plugins/swiper-bundle.min.js"></script>
-  <script src="assets/js/plugins/counterup.js"></script>
-  <script src="assets/js/main.js?v=4.1"></script>
+  <script src="{{asset('assets/js/vendor/modernizr-3.6.0.min.js')}}"></script>
+  <script src="{{asset('assets/js/vendor/jquery-3.6.0.min.js')}}"></script>
+  <script src="{{asset('assets/js/vendor/jquery-migrate-3.3.0.min.js')}}"></script>
+  <script src="{{asset('assets/js/vendor/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{asset('assets/js/plugins/waypoints.js')}}"></script>
+  <script src="{{asset('assets/js/plugins/wow.js')}}"></script>
+  <script src="{{asset('assets/js/plugins/magnific-popup.js')}}"></script>
+  <script src="{{asset('assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
+  <script src="{{asset('assets/js/plugins/select2.min.js')}}"></script>
+  <script src="{{asset('assets/js/plugins/isotope.js')}}"></script>
+  <script src="{{asset('assets/js/plugins/scrollup.js')}}"></script>
+  <script src="{{asset('assets/js/plugins/swiper-bundle.min.js')}}"></script>
+  <script src="{{asset('assets/js/plugins/counterup.js')}}"></script>
+  <script src="{{asset('assets/js/main.js?v=4.1')}}"></script>
 </body>
 
 </html>
