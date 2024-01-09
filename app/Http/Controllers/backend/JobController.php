@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\backend;
 
+use App\Models\Category;
 use App\Models\Job;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,7 +14,9 @@ class JobController extends Controller
      */
     public function index()
     {
-        return view('backend/jobs');
+        // $data['categories'] = Category::all();
+        // $data['jobs'] = Job::all();
+        return view('backend.jobs.index');
     }
 
     /**
@@ -21,7 +24,8 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
+        $data['categories'] = Category::all();
+        return view('backend.jobs.create',$data);
     }
 
     /**
@@ -29,7 +33,17 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'title' => $request->title,
+            'description' => $request->description,
+            'salary' => $request->salary,
+            'category_id' => $request->category,
+        ];
+        // print_r($data);
+        $model = new Job;
+        if($model->insert($data)){
+            return redirect('backend/jobs.create')->with('msg', 'Job Successfully Post');
+        }
     }
 
     /**

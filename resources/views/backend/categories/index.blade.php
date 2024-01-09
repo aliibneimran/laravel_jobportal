@@ -7,7 +7,7 @@
 <h4>All Categories</h4>
 <div>
     <table id="example" class="table table-striped" style="width:100%">
-        <thead>
+        <thead >
             <tr>
                 <th>SN</th>
                 <th>Name</th>

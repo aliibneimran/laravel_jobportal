@@ -7,7 +7,7 @@
       </li>
       <li> <a class="dashboard2" href="/all-companies"><img src="{{asset('backend/assets/imgs/page/dashboard/recruiters.svg')}}" alt="jobBox"><span class="name">Companies</span></a>
       </li>
-      <li> <a class="dashboard2" href="{{URL('all-jobs')}}"><img src="{{asset('backend/assets/imgs/page/dashboard/jobs.svg')}}" alt="jobBox"><span class="name">All Jobs</span></a>
+      <li> <a class="dashboard2" href="{{URL('all-job')}}"><img src="{{asset('backend/assets/imgs/page/dashboard/jobs.svg')}}" alt="jobBox"><span class="name">All Jobs</span></a>
       </li>
       <li> <a class="dashboard2" href="{{URL('catagories/')}}"><img src="{{asset('backend/assets/imgs/page/dashboard/folder-plus.svg')}}" alt="jobBox"><span class="name">Categories</span></a>
       </li>
