@@ -38,7 +38,15 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'users', //table name
+        ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins', //table name
+        ],
+        'jobseeker' => [
+            'driver' => 'session',
+            'provider' => 'jobSeekers', //table name
         ],
     ],
 
@@ -63,6 +71,14 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
+        'jobSeekers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\JobSeeker::class,
         ],
 
         // 'users' => [

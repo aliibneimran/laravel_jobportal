@@ -19,7 +19,7 @@ Route::middleware('guest')->group(function () {
 
     Route::post('register', [RegisteredUserController::class, 'store']);
 
-    Route::get('login', [AuthenticatedSessionController::class, 'create'])
+    Route::get('user/login', [AuthenticatedSessionController::class, 'create'])
                 ->name('login');
 
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
@@ -66,11 +66,11 @@ Route::middleware('auth')->group(function () {
                 ->name('categories.create');
     Route::post('catagories/store', [CategoryController::class, 'store'])
                 ->name('categories.store');
-    Route::get('catagories/edit{id}', [CategoryController::class, 'edit'])
+    Route::get('catagories/edit/{id}', [CategoryController::class, 'edit'])
                 ->name('categories.edit');
     Route::get('catagories/update', [CategoryController::class, 'update'])
                 ->name('categories.update');
-    Route::get('catagories/delete{id}', [CategoryController::class, 'delete'])
+    Route::get('catagories/delete/{cid}', [CategoryController::class, 'destroy'])
                 ->name('categories.delete');
 
     //job

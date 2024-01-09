@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -17,13 +19,14 @@ use App\Http\Controllers\backend\ProfileController as BackendProfileController;
 use App\Http\Controllers\frontend\CandidateController as FrontendCandidateController;
 use App\Http\Controllers\frontend\CandidateDetailsController as FrontendCandidateDetailsController;
 use App\Http\Controllers\frontend\CandidateProfileController as FrontendCandidateProfileController;
-use App\Http\Controllers\frontend\CompanyController as FrontendCompanyController ;
+use App\Http\Controllers\frontend\CompanyController as FrontendCompanyController;
 use App\Http\Controllers\frontend\CompanyDetailsController as FrontendCompanyDetailsController;
 use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
 use App\Http\Controllers\frontend\JobDetailsController as FrontendJobDetailsController;
 use App\Http\Controllers\frontend\JobListController as FrontendJobListController;
 use App\Http\Controllers\frontend\LoginController as FrontendRegisterController;
 use App\Http\Controllers\frontend\RegisterController as FrontendLoginController;
+use App\Http\Controllers\JobSeekerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,29 +53,46 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
 
 
 //frontend
-Route::get('/',[FrontendHomeController::class,'index']);
-Route::get('/jobs',[FrontendJobListController::class,'index']);
-Route::get('/job-details',[FrontendJobDetailsController::class,'index']);
-Route::get('/companies',[FrontendCompanyController::class,'index']);
-Route::get('/company-details',[FrontendCompanyDetailsController::class,'index']);
-Route::get('/candidates',[FrontendCandidateController::class,'index']);
-Route::get('/candidate-details',[FrontendCandidateDetailsController::class,'index']);
-Route::get('/candidate-profile',[FrontendCandidateProfileController::class,'index']);
+Route::get('/', [FrontendHomeController::class, 'index']);
+Route::get('/jobs', [FrontendJobListController::class, 'index']);
+Route::get('/job-details', [FrontendJobDetailsController::class, 'index']);
+Route::get('/companies', [FrontendCompanyController::class, 'index']);
+Route::get('/company-details', [FrontendCompanyDetailsController::class, 'index']);
+Route::get('/candidates', [FrontendCandidateController::class, 'index']);
+Route::get('/candidate-details', [FrontendCandidateDetailsController::class, 'index']);
+Route::get('/candidate-profile', [FrontendCandidateProfileController::class, 'index']);
 // Route::get('/register',[FrontendRegisterController::class,'index']);
 // Route::get('/signin',[FrontendLoginController::class,'index']);
 
 //backend
-Route::get('/admin',[BackendHomeController::class,'index']);
-Route::get('/all-candidates',[BackendCandidateController::class,'index']);
-Route::get('/all-companies',[BackendCompanyController::class,'index']);
-Route::get('/all-jobs',[BackendJobController::class,'index']);
-Route::get('/profile',[BackendProfileController::class,'index']);
-Route::get('/post-job',[BackendJobPostController::class,'index']);
-Route::get('/categories',[BackendCategoryController::class,'index']);
-Route::get('/add-category',[BackendCategoryController::class,'create']);
-Route::get('/payments',[BackendPaymentController::class,'index']);
+Route::get('/admin', [BackendHomeController::class, 'index']);
+Route::get('/all-candidates', [BackendCandidateController::class, 'index']);
+Route::get('/all-companies', [BackendCompanyController::class, 'index']);
+Route::get('/all-jobs', [BackendJobController::class, 'index']);
+Route::get('/profile', [BackendProfileController::class, 'index']);
+Route::get('/post-job', [BackendJobPostController::class, 'index']);
+Route::get('/categories', [BackendCategoryController::class, 'index']);
+Route::get('/add-category', [BackendCategoryController::class, 'create']);
+Route::get('/payments', [BackendPaymentController::class, 'index']);
 
+
+Route::prefix('admin')->group(function () {
+    Route::get('login', [AdminController::class, 'login']);
+    Route::post('login', [AdminController::class, 'store'])->name('adminLogin');
+    Route::get('dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('register', [AdminController::class, 'register']);
+});
+
+Route::prefix('jobseeker')->group(function (){
+    Route::get('login', [JobSeekerController::class, 'login']);
+    Route::post('login', [JobSeekerController::class, 'store'])->name('JobseekerLogin');
+    Route::get('dashboard', [JobSeekerController::class, 'dashboard'])->name('jobseeker.dashboard');
+});
+
+
+
+
+require __DIR__ . '/auth.php';
