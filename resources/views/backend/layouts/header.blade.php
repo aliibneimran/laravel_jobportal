@@ -28,7 +28,12 @@
             </ul>
           </div>
           <div class="member-login"><img alt="" src="{{asset('backend/assets/imgs/page/dashboard/profile.png')}}">
-            <div class="info-member"> <strong class="color-brand-1">{{Auth()->user()->name}}</strong>
+            <div class="info-member"> <strong class="color-brand-1">@if(Auth()->user())
+                {{ Auth()->user()->name }}
+                @else
+                Guest
+                @endif
+              </strong>
               <div class="dropdown"><a class="font-xs color-text-paragraph-2 icon-down" id="dropdownProfile" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">Super Admin</a>
                 <ul class="dropdown-menu dropdown-menu-light dropdown-menu-end" aria-labelledby="dropdownProfile">
                   <li><a class="dropdown-item" href="profile">Profiles</a></li>
