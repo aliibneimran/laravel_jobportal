@@ -15,8 +15,8 @@ class JobController extends Controller
     public function index()
     {
         // $data['categories'] = Category::all();
-        // $data['jobs'] = Job::all();
-        return view('backend.jobs.index');
+        $data['jobs'] = Job::all();
+        return view('backend.jobs.index',$data);
     }
 
     /**

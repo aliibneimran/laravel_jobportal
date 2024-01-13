@@ -59,6 +59,37 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
 
+    // //Category
+    // Route::get('catagories', [CategoryController::class, 'index'])
+    //             ->name('categories.index'); 
+    // Route::get('catagories/create', [CategoryController::class, 'create'])
+    //             ->name('categories.create');
+    // Route::post('catagories/store', [CategoryController::class, 'store'])
+    //             ->name('categories.store');
+    // Route::get('catagories/edit/{id}', [CategoryController::class, 'edit'])
+    //             ->name('categories.edit');
+    // Route::get('catagories/update', [CategoryController::class, 'update'])
+    //             ->name('categories.update');
+    // Route::get('catagories/delete/{cid}', [CategoryController::class, 'destroy'])
+    //             ->name('categories.delete');
+
+    // //job
+    // Route::get('all-job', [JobController::class, 'index'])
+    //             ->name('jobs.index'); 
+    // Route::get('jobs/create', [JobController::class, 'create'])
+    //             ->name('jobs.create');
+    // Route::post('jobs/store', [JobController::class, 'store'])
+    //             ->name('jobs.store');
+    // Route::get('jobs/edit{id}', [JobController::class, 'edit'])
+    //             ->name('job.edit');
+    // Route::get('jobs/update', [JobController::class, 'update'])
+    //             ->name('job.update');
+    // Route::get('jobs/delete{id}', [JobController::class, 'delete'])
+    //             ->name('job.delete');
+                
+                
+});
+
     //Category
     Route::get('catagories', [CategoryController::class, 'index'])
                 ->name('categories.index'); 
@@ -86,6 +117,3 @@ Route::middleware('auth')->group(function () {
                 ->name('job.update');
     Route::get('jobs/delete{id}', [JobController::class, 'delete'])
                 ->name('job.delete');
-                
-                
-});
