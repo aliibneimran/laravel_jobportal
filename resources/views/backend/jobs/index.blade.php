@@ -53,7 +53,33 @@
                             </div>
                         </div>
                         <div class="row">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Title</th>
+                                    <th>Image</th>
+                                    <th>Checkbox</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @php $no = 1 @endphp
                             @foreach ($jobs as $item)
+                                <tr>
+                                    <td>{{$no++}}</td>
+                                    <td>{{$item->title}}</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>
+                                        <a href=""><i class="fas fa-edit"></i></a>
+                                        <a href=""><i class="fas fa-trash-alt"></i></a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                            <!-- @foreach ($jobs as $item)
                             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12">
                                 <div class="card-grid-2 hover-up">
                                     <div class="card-grid-2-image-left"><span class="flash"></span>
@@ -77,10 +103,10 @@
                                     </div>
                                 </div>
                             </div>
-                            @endforeach
+                            @endforeach -->
 
                             <!-- Static Content -->
-                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12">
+                            <!-- <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12">
                                 <div class="card-grid-2 hover-up">
                                     <div class="card-grid-2-image-left"><span class="flash"></span>
                                         <div class="image-box"><img src="backend/assets/imgs/brands/brand-2.png" alt="jobBox"></div>
@@ -102,8 +128,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
+                            </div> -->
+
                         </div>
                         <div class="paginations">
                             <ul class="pager">
