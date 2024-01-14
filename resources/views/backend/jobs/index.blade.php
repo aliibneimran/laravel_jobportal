@@ -24,6 +24,12 @@
                     <div class="box-padding">
                         <div class="box-filters-job">
                             <div class="row">
+                                <!-- Success Message -->
+        @if (session('msg'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('msg') }}
+        </div>
+        @endif
                                 <div class="col-xl-6 col-lg-5"><span class="font-sm text-showing color-text-paragraph">Showing 41-60 of 944 jobs</span></div>
                                 <div class="col-xl-6 col-lg-7 text-lg-end mt-sm-15">
                                     <div class="display-flex2">
@@ -72,8 +78,8 @@
                                     <td>1</td>
                                     <td>1</td>
                                     <td>
-                                        <a href=""><i class="fas fa-edit"></i></a>
-                                        <a href=""><i class="fas fa-trash-alt"></i></a>
+                                        <a href="job/edit/{{$item->id}}"><i class="fas fa-edit"></i></a>
+                                        <a href="jobs/delete/{{$item->id}}"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

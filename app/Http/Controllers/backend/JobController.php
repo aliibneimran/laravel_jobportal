@@ -40,9 +40,9 @@ class JobController extends Controller
             'category_id' => $request->category,
         ];
         // print_r($data);
-        $model = new Job;
-        if($model->insert($data)){
-            return redirect('backend/jobs.create')->with('msg', 'Job Successfully Post');
+        // $model = new Job;
+        if(Job::insert($data)){
+            return redirect('all-job')->with('msg', 'Job Successfully Post');
         }
     }
 
@@ -73,8 +73,10 @@ class JobController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Job $job)
+    public function destroy($jid)
     {
-        //
+        $job = Job::find($jid);
+        $job->delete($jid);
+        return redirect('all-job')->with('msg', 'Successfully Deleted'); 
     }
 }

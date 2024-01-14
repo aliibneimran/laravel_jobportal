@@ -97,9 +97,9 @@ Route::middleware('auth')->group(function () {
                 ->name('categories.create');
     Route::post('catagories/store', [CategoryController::class, 'store'])
                 ->name('categories.store');
-    Route::get('catagories/edit/{id}', [CategoryController::class, 'edit'])
+    Route::get('catagories/edit/{cid}', [CategoryController::class, 'edit'])
                 ->name('categories.edit');
-    Route::get('catagories/update', [CategoryController::class, 'update'])
+    Route::post('catagories/update{cid}', [CategoryController::class, 'update'])
                 ->name('categories.update');
     Route::get('catagories/delete/{cid}', [CategoryController::class, 'destroy'])
                 ->name('categories.delete');
@@ -111,9 +111,9 @@ Route::middleware('auth')->group(function () {
                 ->name('jobs.create');
     Route::post('jobs/store', [JobController::class, 'store'])
                 ->name('jobs.store');
-    Route::get('jobs/edit{id}', [JobController::class, 'edit'])
+    Route::get('jobs/edit/{jid}', [JobController::class, 'edit'])
                 ->name('job.edit');
-    Route::get('jobs/update', [JobController::class, 'update'])
+    Route::post('jobs/update/{jid}', [JobController::class, 'update'])
                 ->name('job.update');
-    Route::get('jobs/delete{id}', [JobController::class, 'delete'])
-                ->name('job.delete');
+    Route::get('jobs/delete/{jid}', [JobController::class, 'destroy'])
+                ->name('jobs.delete');

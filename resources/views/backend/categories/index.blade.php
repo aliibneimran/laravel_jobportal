@@ -21,7 +21,7 @@
                 <td>{{$no++}}</td>
                 <td>{{$item->name}}</td>
                 <td>
-                    <a href="{{URL('catagories/edit/$item->id')}}" class="m-2"><i class="fas fa-pen-to-square"></i></a>
+                    <a href="catagories/edit/{{$item->id}}" class="m-2"><i class="fas fa-pen-to-square"></i></a>
                     <a href="catagories/delete/{{$item->id}}" ><i class="fa-solid fa-trash"></i></a>
                 </td>
             </tr>
