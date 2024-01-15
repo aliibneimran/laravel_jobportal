@@ -65,6 +65,7 @@
                                     <th>#</th>
                                     <th>Title</th>
                                     <th>Image</th>
+                                    <th>Radio</th>
                                     <th>Checkbox</th>
                                     <th>Action</th>
                                 </tr>
@@ -76,9 +77,10 @@
                                     <td>{{$no++}}</td>
                                     <td>{{$item->title}}</td>
                                     <td>1</td>
-                                    <td>1</td>
+                                    <td>{{$item->radio}}</td>
+                                    <td>{{$item->hobbies}}</td>
                                     <td>
-                                        <a href="job/edit/{{$item->id}}"><i class="fas fa-edit"></i></a>
+                                        <a href="jobs/edit/{{$item->id}}"><i class="fas fa-edit"></i></a>
                                         <a href="jobs/delete/{{$item->id}}"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>

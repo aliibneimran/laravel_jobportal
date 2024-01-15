@@ -5,7 +5,7 @@
 @section('content')
 <div class="box-heading">
     <div class="box-title">
-        <h3 class="mb-35">Post a Job</h3>
+        <h3 class="mb-35">Edit a Job</h3>
     </div>
     <div class="box-breadcrumb">
         <div class="breadcrumbs">
@@ -26,33 +26,27 @@
                         <div class="row mt-30">
                             <div class="col-lg-12">
                                 <div class="row">
-                                    <form action="{{route('jobs.store')}}" method="POST">
+                                    <form action="{{ route('jobs.update', $single->id) }}" method="POST">
                                         @csrf
                                         <div class="col-lg-12">
                                             <div class="form-group mb-30">
                                                 <label class="font-sm color-text-mutted mb-10">Job title *</label>
-                                                <input class="form-control" type="text" placeholder="e.g. Senior Product Designer" name="title">
+                                                <input class="form-control" type="text" placeholder="e.g. Senior Product Designer" name="title" value="{{old('name')?old('name'):$single->title}}">
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-group mb-30">
                                                 <label class="font-sm color-text-mutted mb-10">Add your job description *</label>
-                                                <textarea class="form-control" name="description" rows="8"></textarea>
+                                                <textarea class="form-control" name="description" rows="8">{{old('name')?old('name'):$single->description}}</textarea>
                                             </div>
                                         </div>
-                                        <!-- <div class="col-lg-6 col-md-6">
-                                        <div class="form-group mb-30">
-                                            <label class="font-sm color-text-mutted mb-10">Job location</label>
-                                            <input class="form-control" type="text" placeholder="e.g. &quot;New York City&quot; or &quot;San Francisco”">
-                                        </div>
-                                    </div> -->
                                         <div class="col-lg-6 col-md-6">
                                             <div class="form-group mb-30">
                                                 <label class="font-sm color-text-mutted mb-10">Workplace type *</label>
                                                 <select class="form-control" name="category">
                                                     <option value="">Select</option>
                                                     @foreach($categories as $cat)
-                                                    <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                                    <option value="{{$cat->id}}" {{ old('category') == $cat->id ? 'selected' : '' }}>{{$cat->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -60,7 +54,7 @@
                                         <div class="col-lg-6 col-md-6">
                                             <div class="form-group mb-30">
                                                 <label class="font-sm color-text-mutted mb-10">Salary</label>
-                                                <input class="form-control" type="text" placeholder="$2200 - $2500" name="salary">
+                                                <input class="form-control" type="text" placeholder="$2200 - $2500" name="salary" value="{{old('name')?old('name'):$single->salary}}">
                                             </div>
                                         </div>
                                         <div class="mb-3">
@@ -93,6 +87,12 @@
                                         </div>
                                         <!-- <div class="col-lg-6 col-md-6">
                                         <div class="form-group mb-30">
+                                            <label class="font-sm color-text-mutted mb-10">Job location</label>
+                                            <input class="form-control" type="text" placeholder="e.g. &quot;New York City&quot; or &quot;San Francisco”">
+                                        </div>
+                                    </div> -->
+                                        <!-- <div class="col-lg-6 col-md-6">
+                                        <div class="form-group mb-30">
                                             <label class="font-sm color-text-mutted mb-10">Tags (optional) </label>
                                             <input class="form-control" type="text" placeholder="Figma, UI/UX, Sketch...">
                                         </div>
@@ -111,7 +111,7 @@
                                     </div> -->
                                         <div class="col-lg-12">
                                             <div class="form-group mt-10">
-                                                <button class="btn btn-default btn-brand icon-tick" type="submit">Post New Job</button>
+                                                <button class="btn btn-default btn-brand icon-tick" type="submit">Update Job</button>
                                             </div>
                                         </div>
                                     </form>

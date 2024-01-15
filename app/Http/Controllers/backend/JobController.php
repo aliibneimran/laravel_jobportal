@@ -33,11 +33,14 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
+        $hobbies = implode(",", $request->get('hobbies'));
         $data = [
             'title' => $request->title,
             'description' => $request->description,
             'salary' => $request->salary,
             'category_id' => $request->category,
+            'hobbies' => $hobbies,
+            'radio'=> $request->gender,
         ];
         // print_r($data);
         // $model = new Job;
@@ -57,17 +60,27 @@ class JobController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Job $job)
+    public function edit($jid)
     {
-        //
+        $data['single'] = Job::find($jid);
+        $data['categories'] = Category::all();
+        return view('backend.jobs.edit',$data);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Job $job)
+    public function update(Request $request,$jid)
     {
-        //
+        $job = Job::find($jid);
+        $data = [
+            'title' => $request->title,
+            'description' => $request->description,
+            'salary' => $request->salary,
+            'category_id' => $request->category,
+        ];
+        $job->update($data);
+        return redirect('all-job')->with('msg', 'Successfully Update'); 
     }
 
     /**

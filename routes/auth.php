@@ -99,7 +99,7 @@ Route::middleware('auth')->group(function () {
                 ->name('categories.store');
     Route::get('catagories/edit/{cid}', [CategoryController::class, 'edit'])
                 ->name('categories.edit');
-    Route::post('catagories/update{cid}', [CategoryController::class, 'update'])
+    Route::post('catagories/update/{cid}', [CategoryController::class, 'update'])
                 ->name('categories.update');
     Route::get('catagories/delete/{cid}', [CategoryController::class, 'destroy'])
                 ->name('categories.delete');
@@ -112,8 +112,8 @@ Route::middleware('auth')->group(function () {
     Route::post('jobs/store', [JobController::class, 'store'])
                 ->name('jobs.store');
     Route::get('jobs/edit/{jid}', [JobController::class, 'edit'])
-                ->name('job.edit');
+                ->name('jobs.edit');
     Route::post('jobs/update/{jid}', [JobController::class, 'update'])
-                ->name('job.update');
+                ->name('jobs.update');
     Route::get('jobs/delete/{jid}', [JobController::class, 'destroy'])
                 ->name('jobs.delete');
