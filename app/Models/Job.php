@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Job extends Model
 {
     use HasFactory;
-    // protected $fillable = ['title','description','salary','category_id','gender'];
+    protected $fillable = ['title','description','salary','category_id','image','tag'];
     public function category():BelongsTo
     {
       return $this->belongsTo(Category::class); 

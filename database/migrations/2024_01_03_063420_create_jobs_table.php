@@ -14,10 +14,14 @@ return new class extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->string('title',100);
-            $table->string('description',150);
+            $table->string('description',200);
             $table->decimal('salary',10);
+            $table->string('image',50);
+            $table->string('tag',200);
+            $table->boolean('availability')->default(0)->nullable();
             $table->tinyInteger('category_id');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

@@ -64,51 +64,51 @@
                                             </div>
                                         </div>
                                         <div class="mb-3">
-                                            <label class="form-label">Hobbies (Optional, but 2 minimum):</label>
+                                            <label class="form-label">Tags:</label>
 
                                             <div class="form-check  mb-1">
-                                                <input type="checkbox" name="hobbies[]" id="hobby1" value="Skiing" data-parsley-mincheck="2" class="form-check-input" />
-                                                <label for="hobby1" class="form-check-label"> Skiing </label>
+                                                <input type="checkbox" name="tags[]" id="hobby1" value="Skiing" data-parsley-mincheck="2" class="form-check-input" />
+                                                <label for="hobby1" class="form-check-label"> Laravel</label>
                                             </div>
                                             <div class="form-check  mb-1">
-                                                <input type="checkbox" name="hobbies[]" id="hobby2" value="Running" class="form-check-input" />
-                                                <label for="hobby2" class="form-check-label"> Running </label>
+                                                <input type="checkbox" name="tags[]" id="hobby2" value="Running" class="form-check-input" />
+                                                <label for="hobby2" class="form-check-label"> React </label>
                                             </div>
                                             <div class="form-check ">
-                                                <input type="checkbox" name="hobbies[]" id="hobby3" value="Eating" class="form-check-input" />
-                                                <label for="hobby3" class="form-check-label"> Eating </label>
+                                                <input type="checkbox" name="tags[]" id="hobby3" value="Eating" class="form-check-input" />
+                                                <label for="hobby3" class="form-check-label"> Vue </label>
                                             </div>
                                         </div>
                                         <div class="mb-3">
-                                            <label class="form-label">Gender *:</label>
+                                            <label class="form-label">Avaiability *:</label>
 
                                             <div class="form-check mb-1">
-                                                <input type="radio" name="gender" id="genderM" value="Male" required=" " class="form-check-input">
-                                                <label for="genderM" class="form-check-label">Male</label>
+                                                <input type="radio" name="availability" value="1" required=" " class="form-check-input">
+                                                <label for="genderM" class="form-check-label">Available</label>
                                             </div>
                                             <div class="form-check">
-                                                <input type="radio" name="gender" id="genderF" value="Female" class="form-check-input">
-                                                <label for="genderF" class="form-check-label">Female</label>
+                                                <input type="radio" name="availability" value="0" class="form-check-input">
+                                                <label for="genderF" class="form-check-label">Not Available</label>
                                             </div>
                                         </div>
                                         <!-- <div class="col-lg-6 col-md-6">
-                                        <div class="form-group mb-30">
-                                            <label class="font-sm color-text-mutted mb-10">Tags (optional) </label>
-                                            <input class="form-control" type="text" placeholder="Figma, UI/UX, Sketch...">
-                                        </div>
-                                    </div> -->
-                                        <!-- <div class="col-lg-6 col-md-6">
-                                        <div class="form-group mb-30">
-                                            <div class="box-upload">
-                                                <div class="add-file-upload">
-                                                    <input class="fileupload" type="file" name="file">
-                                                </div><a class="btn btn-default">Upload File</a>
+                                            <div class="form-group mb-30">
+                                                <label class="font-sm color-text-mutted mb-10">Tags (optional) </label>
+                                                <input class="form-control" type="text" placeholder="Figma, UI/UX, Sketch...">
+                                            </div>
+                                        </div> -->
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group mb-30">
+                                                <div class="box-upload">
+                                                    <div class="add-file-upload">
+                                                        <input class="fileupload" type="file" name="file">
+                                                    </div><a class="btn btn-default">Upload File</a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div> -->
-                                        <!-- <div class="col-lg-6 col-md-6">
-                                        <div class="form-group mb-30 box-file-uploaded d-flex align-items-center"><span>Job_required.pdf</span><a class="btn btn-delete">Delete</a></div>
-                                    </div> -->
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group mb-30 box-file-uploaded d-flex align-items-center"><span>Job_required.pdf</span><a class="btn btn-delete">Delete</a></div>
+                                        </div>
                                         <div class="col-lg-12">
                                             <div class="form-group mt-10">
                                                 <button class="btn btn-default btn-brand icon-tick" type="submit">Post New Job</button>

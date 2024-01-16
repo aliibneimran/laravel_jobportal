@@ -33,15 +33,25 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        $hobbies = implode(",", $request->get('hobbies'));
-        $data = [
-            'title' => $request->title,
-            'description' => $request->description,
-            'salary' => $request->salary,
-            'category_id' => $request->category,
-            'hobbies' => $hobbies,
-            'radio'=> $request->gender,
-        ];
+        $validate = $request->validate([
+            'title' => 'required|min(4)',
+            'description' => 'required|min(10)',
+            'salary' => 'required|numeric',
+            'category_id' => 'required',
+            'image' => 'mimes:jpg,jpeg,png',
+        ]);
+        if($validate){
+            $tags = implode(",", $request->get('tags'));
+            $data = [
+                'title' => $request->title,
+                'description' => $request->description,
+                'salary' => $request->salary,
+                'category_id' => $request->category,
+                'tag' => $tags,
+                'availability'=> $request->availability,
+                'image'=> $request->file,
+            ];
+        }
         // print_r($data);
         // $model = new Job;
         if(Job::insert($data)){
