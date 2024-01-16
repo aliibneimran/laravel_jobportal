@@ -37,8 +37,8 @@ class JobController extends Controller
             'title' => 'required|min(4)',
             'description' => 'required|min(10)',
             'salary' => 'required|numeric',
-            'category_id' => 'required',
-            'image' => 'mimes:jpg,jpeg,png',
+            'category' => 'required',
+            'file' => 'mimes:jpg,jpeg,png',
         ]);
         if($validate){
             $tags = implode(",", $request->get('tags'));
