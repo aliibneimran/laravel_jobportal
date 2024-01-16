@@ -34,8 +34,8 @@ class JobController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'title' => 'required|min(4)',
-            'description' => 'required|min(10)',
+            'title' => 'required|min:4',
+            'description' => 'required|min:10',
             'salary' => 'required|numeric',
             'category' => 'required',
             'file' => 'mimes:jpg,jpeg,png',
