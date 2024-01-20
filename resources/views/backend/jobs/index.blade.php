@@ -25,11 +25,11 @@
                         <div class="box-filters-job">
                             <div class="row">
                                 <!-- Success Message -->
-        @if (session('msg'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('msg') }}
-        </div>
-        @endif
+                                @if (session('msg'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{ session('msg') }}
+                                </div>
+                                @endif
                                 <div class="col-xl-6 col-lg-5"><span class="font-sm text-showing color-text-paragraph">Showing 41-60 of 944 jobs</span></div>
                                 <div class="col-xl-6 col-lg-7 text-lg-end mt-sm-15">
                                     <div class="display-flex2">
@@ -59,36 +59,45 @@
                             </div>
                         </div>
                         <div class="row">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Title</th>
-                                    <th>Image</th>
-                                    <th>Salary</th>
-                                    <th>Tags</th>
-                                    <th>Availble</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            @php $no = 1 @endphp
-                            @foreach ($jobs as $item)
-                                <tr>
-                                    <td>{{$no++}}</td>
-                                    <td>{{$item->title}}</td>
-                                    <td>{{$item->image}}</td>
-                                    <td>{{$item->salary}}</td>
-                                    <td>{{$item->tag}}</td>
-                                    <td>{{$item->availability}}</td>
-                                    <td>
-                                        <a href="jobs/edit/{{$item->id}}"><i class="fas fa-edit"></i></a>
-                                        <a href="jobs/delete/{{$item->id}}"><i class="fas fa-trash-alt"></i></a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Title</th>
+                                        <th>Image</th>
+                                        <th>Category</th>
+                                        <th>Salary</th>
+                                        <th>Tags</th>
+                                        <th>Availble</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php $no = 1 @endphp
+                                    @foreach ($jobs as $item)
+                                    <tr>
+                                        <td>{{$no++}}</td>
+                                        <td>{{$item->title}}</td>
+                                        <td><img src="{{ asset('uploads/' . $item->image) }}" alt="Image" width="50px" height="50px"></td>
+                                        <td>{{$item->category->name}}</td>
+                                        <td>{{$item->salary}}</td>
+                                        <td>
+                                            {{ implode(', ', $item->tag) }}
+                                        </td>
+                                        <td>@if($item->availability == 1)
+                                            Available
+                                            @else
+                                            Not Available
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <a href="jobs/edit/{{$item->id}}"><i class="fas fa-edit"></i></a>
+                                            <a href="jobs/delete/{{$item->id}}"><i class="fas fa-trash-alt"></i></a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                             <!-- @foreach ($jobs as $item)
                             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12">
                                 <div class="card-grid-2 hover-up">

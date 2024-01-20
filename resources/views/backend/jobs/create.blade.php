@@ -26,18 +26,27 @@
                         <div class="row mt-30">
                             <div class="col-lg-12">
                                 <div class="row">
-                                    <form action="{{route('jobs.store')}}" method="POST">
+                                    @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    @endif
+                                    <form action="{{route('jobs.store')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="col-lg-12">
                                             <div class="form-group mb-30">
                                                 <label class="font-sm color-text-mutted mb-10">Job title *</label>
-                                                <input class="form-control" type="text" placeholder="e.g. Senior Product Designer" name="title">
+                                                <input class="form-control" type="text" placeholder="e.g. Senior Product Designer" name="title" value="{{old('title')}}">
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-group mb-30">
                                                 <label class="font-sm color-text-mutted mb-10">Add your job description *</label>
-                                                <textarea class="form-control" name="description" rows="8"></textarea>
+                                                <textarea class="form-control" name="description" rows="8">{{old('description')}}</textarea>
                                             </div>
                                         </div>
                                         <!-- <div class="col-lg-6 col-md-6">
@@ -52,7 +61,7 @@
                                                 <select class="form-control" name="category">
                                                     <option value="">Select</option>
                                                     @foreach($categories as $cat)
-                                                    <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                                    <option value="{{$cat->id}}" {{old('category')==$cat->id?'selected':''}}>{{$cat->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -60,22 +69,22 @@
                                         <div class="col-lg-6 col-md-6">
                                             <div class="form-group mb-30">
                                                 <label class="font-sm color-text-mutted mb-10">Salary</label>
-                                                <input class="form-control" type="text" placeholder="$2200 - $2500" name="salary">
+                                                <input class="form-control" type="text" placeholder="$2200 - $2500" name="salary" value="{{old('salary')}}">
                                             </div>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Tags:</label>
 
                                             <div class="form-check  mb-1">
-                                                <input type="checkbox" name="tags[]" id="hobby1" value="Skiing" data-parsley-mincheck="2" class="form-check-input" />
+                                                <input type="checkbox" name="tags[]" id="" value="Laravel" {{in_array('Laravel',old('tags',[]))?'checked':''}} data-parsley-mincheck="2" class="form-check-input" />
                                                 <label for="hobby1" class="form-check-label"> Laravel</label>
                                             </div>
                                             <div class="form-check  mb-1">
-                                                <input type="checkbox" name="tags[]" id="hobby2" value="Running" class="form-check-input" />
+                                                <input type="checkbox" name="tags[]" id="" value="React" {{in_array('React',old('tags',[]))?'checked':''}}  class="form-check-input" />
                                                 <label for="hobby2" class="form-check-label"> React </label>
                                             </div>
                                             <div class="form-check ">
-                                                <input type="checkbox" name="tags[]" id="hobby3" value="Eating" class="form-check-input" />
+                                                <input type="checkbox" name="tags[]" id="" value="Vue" {{in_array('Vue',old('tags',[]))?'checked':''}} class="form-check-input" />
                                                 <label for="hobby3" class="form-check-label"> Vue </label>
                                             </div>
                                         </div>
@@ -83,11 +92,11 @@
                                             <label class="form-label">Avaiability *:</label>
 
                                             <div class="form-check mb-1">
-                                                <input type="radio" name="availability" value="1" required=" " class="form-check-input">
+                                                <input type="radio" name="availability" value="1" {{old('availability')?'checked':''}} class="form-check-input">
                                                 <label for="genderM" class="form-check-label">Available</label>
                                             </div>
                                             <div class="form-check">
-                                                <input type="radio" name="availability" value="0" class="form-check-input">
+                                                <input type="radio" name="availability" value="0" {{old('availability')?'':'checked'}} class="form-check-input">
                                                 <label for="genderF" class="form-check-label">Not Available</label>
                                             </div>
                                         </div>
@@ -101,7 +110,7 @@
                                             <div class="form-group mb-30">
                                                 <div class="box-upload">
                                                     <div class="add-file-upload">
-                                                        <input class="fileupload" type="file" name="file">
+                                                        <input class="fileupload" type="file" name="photo">
                                                     </div><a class="btn btn-default">Upload File</a>
                                                 </div>
                                             </div>

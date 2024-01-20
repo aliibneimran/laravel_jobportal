@@ -17,6 +17,7 @@ class JobController extends Controller
         // $data['categories'] = Category::all();
         $data['jobs'] = Job::all();
         return view('backend.jobs.index',$data);
+        dd($data);
     }
 
     /**
@@ -38,23 +39,26 @@ class JobController extends Controller
             'description' => 'required|min:10',
             'salary' => 'required|numeric',
             'category' => 'required',
-            'file' => 'mimes:jpg,jpeg,png',
+            'photo' => 'mimes:jpg,jpeg,png',
         ]);
+        $filename = time().'.'.$request->photo->extension();
+        // dd($request->photo);
         if($validate){
-            $tags = implode(",", $request->get('tags'));
+            // $tags = implode(",", $request->get('tags'));
             $data = [
                 'title' => $request->title,
                 'description' => $request->description,
                 'salary' => $request->salary,
                 'category_id' => $request->category,
-                'tag' => $tags,
+                'tag' => $request->tags,
                 'availability'=> $request->availability,
-                'image'=> $request->file,
+                'image'=> $filename,
             ];
         }
         // print_r($data);
         // $model = new Job;
-        if(Job::insert($data)){
+        if(Job::create($data)){
+             $request->photo->move('uploads', $filename);
             return redirect('all-job')->with('msg', 'Job Successfully Post');
         }
     }
