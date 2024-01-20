@@ -49,12 +49,6 @@
                                                 <textarea class="form-control" name="description" rows="8">{{old('description')}}</textarea>
                                             </div>
                                         </div>
-                                        <!-- <div class="col-lg-6 col-md-6">
-                                        <div class="form-group mb-30">
-                                            <label class="font-sm color-text-mutted mb-10">Job location</label>
-                                            <input class="form-control" type="text" placeholder="e.g. &quot;New York City&quot; or &quot;San Francisco”">
-                                        </div>
-                                    </div> -->
                                         <div class="col-lg-6 col-md-6">
                                             <div class="form-group mb-30">
                                                 <label class="font-sm color-text-mutted mb-10">Workplace type *</label>
@@ -62,6 +56,17 @@
                                                     <option value="">Select</option>
                                                     @foreach($categories as $cat)
                                                     <option value="{{$cat->id}}" {{old('category')==$cat->id?'selected':''}}>{{$cat->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group mb-30">
+                                                <label class="font-sm color-text-mutted mb-10">Location *</label>
+                                                <select class="form-control" name="location">
+                                                    <option value="">Select</option>
+                                                    @foreach($locations as $item)
+                                                    <option value="{{$item->id}}" {{old('location')==$item->id?'selected':''}}>{{$item->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -80,7 +85,7 @@
                                                 <label for="hobby1" class="form-check-label"> Laravel</label>
                                             </div>
                                             <div class="form-check  mb-1">
-                                                <input type="checkbox" name="tags[]" id="" value="React" {{in_array('React',old('tags',[]))?'checked':''}}  class="form-check-input" />
+                                                <input type="checkbox" name="tags[]" id="" value="React" {{in_array('React',old('tags',[]))?'checked':''}} class="form-check-input" />
                                                 <label for="hobby2" class="form-check-label"> React </label>
                                             </div>
                                             <div class="form-check ">
@@ -109,14 +114,9 @@
                                         <div class="col-lg-6 col-md-6">
                                             <div class="form-group mb-30">
                                                 <div class="box-upload">
-                                                    <div class="add-file-upload">
-                                                        <input class="fileupload" type="file" name="photo">
-                                                    </div><a class="btn btn-default">Upload File</a>
+                                                    <input class="fileupload" type="file" name="photo">
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="form-group mb-30 box-file-uploaded d-flex align-items-center"><span>Job_required.pdf</span><a class="btn btn-delete">Delete</a></div>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-group mt-10">

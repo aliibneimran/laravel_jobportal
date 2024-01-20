@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\JobController;
+use App\Http\Controllers\LocationController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -103,6 +104,20 @@ Route::middleware('auth')->group(function () {
                 ->name('categories.update');
     Route::get('catagories/delete/{cid}', [CategoryController::class, 'destroy'])
                 ->name('categories.delete');
+    
+    //Location
+    Route::get('locations', [LocationController::class, 'index'])
+    ->name('locations.index'); 
+    Route::get('locations/create', [LocationController::class, 'create'])
+    ->name('locations.create');
+    Route::post('locations/store', [LocationController::class, 'store'])
+    ->name('locations.store');
+    Route::get('locations/edit/{lid}', [LocationController::class, 'edit'])
+    ->name('locations.edit');
+    Route::post('locations/update/{cld}', [LocationController::class, 'update'])
+    ->name('locations.update');
+    Route::get('locations/delete/{lid}', [LocationController::class, 'destroy'])
+    ->name('locations.delete');
 
     //job
     Route::get('all-job', [JobController::class, 'index'])

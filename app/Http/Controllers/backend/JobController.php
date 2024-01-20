@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Models\Category;
 use App\Models\Job;
+use App\Models\Location;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,8 +17,9 @@ class JobController extends Controller
     {
         // $data['categories'] = Category::all();
         $data['jobs'] = Job::all();
+        $data['locations'] = Location::all();
         return view('backend.jobs.index',$data);
-        dd($data);
+        // dd($data);
     }
 
     /**
@@ -26,6 +28,7 @@ class JobController extends Controller
     public function create()
     {
         $data['categories'] = Category::all();
+        $data['locations'] = Location::all();
         return view('backend.jobs.create',$data);
     }
 
@@ -39,6 +42,7 @@ class JobController extends Controller
             'description' => 'required|min:10',
             'salary' => 'required|numeric',
             'category' => 'required',
+            'location' => 'required',
             'photo' => 'mimes:jpg,jpeg,png',
         ]);
         $filename = time().'.'.$request->photo->extension();
@@ -50,6 +54,7 @@ class JobController extends Controller
                 'description' => $request->description,
                 'salary' => $request->salary,
                 'category_id' => $request->category,
+                'location_id' => $request->location,
                 'tag' => $request->tags,
                 'availability'=> $request->availability,
                 'image'=> $filename,

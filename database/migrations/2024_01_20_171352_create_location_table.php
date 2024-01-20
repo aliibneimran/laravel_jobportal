@@ -11,16 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('jobs', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->string('title',100);
-            $table->string('description',200);
-            $table->decimal('salary',10);
-            $table->string('image',50);
-            $table->string('tag',200);
-            $table->boolean('availability')->default(0)->nullable();
-            $table->tinyInteger('category_id');
-            $table->tinyInteger('location_id');
+            $table->string('name',50);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
@@ -31,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('jobs');
+        Schema::dropIfExists('location');
     }
 };

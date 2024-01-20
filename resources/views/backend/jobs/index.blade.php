@@ -66,9 +66,10 @@
                                         <th>Title</th>
                                         <th>Image</th>
                                         <th>Category</th>
+                                        <th>Location</th>
                                         <th>Salary</th>
                                         <th>Tags</th>
-                                        <th>Availble</th>
+                                        <th>Availability</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -80,6 +81,7 @@
                                         <td>{{$item->title}}</td>
                                         <td><img src="{{ asset('uploads/' . $item->image) }}" alt="Image" width="50px" height="50px"></td>
                                         <td>{{$item->category->name}}</td>
+                                        <td>{{$item->location->name}}</td>
                                         <td>{{$item->salary}}</td>
                                         <td>
                                             {{ implode(', ', $item->tag) }}
