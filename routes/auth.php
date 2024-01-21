@@ -60,19 +60,19 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
 
-    // //Category
-    // Route::get('catagories', [CategoryController::class, 'index'])
-    //             ->name('categories.index'); 
-    // Route::get('catagories/create', [CategoryController::class, 'create'])
-    //             ->name('categories.create');
-    // Route::post('catagories/store', [CategoryController::class, 'store'])
-    //             ->name('categories.store');
-    // Route::get('catagories/edit/{id}', [CategoryController::class, 'edit'])
-    //             ->name('categories.edit');
-    // Route::get('catagories/update', [CategoryController::class, 'update'])
-    //             ->name('categories.update');
-    // Route::get('catagories/delete/{cid}', [CategoryController::class, 'destroy'])
-    //             ->name('categories.delete');
+    //Category
+    Route::get('catagories', [CategoryController::class, 'index'])
+                ->name('categories.index'); 
+    Route::get('catagories/create', [CategoryController::class, 'create'])
+                ->name('categories.create');
+    Route::post('catagories/store', [CategoryController::class, 'store'])
+                ->name('categories.store');
+    Route::get('catagories/edit/{id}', [CategoryController::class, 'edit'])
+                ->name('categories.edit');
+    Route::get('catagories/update', [CategoryController::class, 'update'])
+                ->name('categories.update');
+    Route::get('catagories/delete/{cid}', [CategoryController::class, 'destroy'])
+                ->name('categories.delete');
 
     // //job
     // Route::get('all-job', [JobController::class, 'index'])
@@ -92,18 +92,18 @@ Route::middleware('auth')->group(function () {
 });
 
     //Category
-    Route::get('catagories', [CategoryController::class, 'index'])
-                ->name('categories.index'); 
-    Route::get('catagories/create', [CategoryController::class, 'create'])
-                ->name('categories.create');
-    Route::post('catagories/store', [CategoryController::class, 'store'])
-                ->name('categories.store');
-    Route::get('catagories/edit/{cid}', [CategoryController::class, 'edit'])
-                ->name('categories.edit');
-    Route::post('catagories/update/{cid}', [CategoryController::class, 'update'])
-                ->name('categories.update');
-    Route::get('catagories/delete/{cid}', [CategoryController::class, 'destroy'])
-                ->name('categories.delete');
+    // Route::get('catagories', [CategoryController::class, 'index'])
+    //             ->name('categories.index'); 
+    // Route::get('catagories/create', [CategoryController::class, 'create'])
+    //             ->name('categories.create');
+    // Route::post('catagories/store', [CategoryController::class, 'store'])
+    //             ->name('categories.store');
+    // Route::get('catagories/edit/{cid}', [CategoryController::class, 'edit'])
+    //             ->name('categories.edit');
+    // Route::post('catagories/update/{cid}', [CategoryController::class, 'update'])
+    //             ->name('categories.update');
+    // Route::get('catagories/delete/{cid}', [CategoryController::class, 'destroy'])
+    //             ->name('categories.delete');
     
     //Location
     Route::get('locations', [LocationController::class, 'index'])

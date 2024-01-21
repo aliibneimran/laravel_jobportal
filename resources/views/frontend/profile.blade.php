@@ -39,6 +39,9 @@
                 <div class="tab-content">
                   <div class="tab-pane fade show active" id="tab-my-profile" role="tabpanel" aria-labelledby="tab-my-profile">
                     <h3 class="mt-0 mb-15 color-brand-1">My Account</h3><a class="font-md color-text-paragraph-2" href="#">Update your profile</a>
+
+
+                  <form action="" method="post"></form>
                     <div class="mt-35 mb-40 box-info-profie">
                       <div class="image-profile"><img src="assets/imgs/page/candidates/candidate-profile.png" alt="jobbox"></div><a class="btn btn-apply">Upload Avatar</a><a class="btn btn-link">Delete</a>
                     </div>
@@ -109,12 +112,15 @@
                         <div class="border-bottom pt-10 pb-10"></div>
                         <div class="box-agree mt-30">
                           <label class="lbl-agree font-xs color-text-paragraph-2">
-                            <input class="lbl-checkbox" type="checkbox" value="1">Available for freelancers
+                            <input class="lbl-checkbox" type="checkbox" value="1" name="availability[]">Available for freelancers
                           </label>
                         </div>
                         <div class="box-button mt-15">
-                          <button class="btn btn-apply-big font-md font-bold">Save All Changes</button>
+                          <button class="btn btn-apply-big font-md font-bold" type="submit">Save All Changes</button>
                         </div>
+                  </form>
+
+
                       </div>
                       <div class="col-lg-6 col-md-12">
                         <div class="box-skills">
