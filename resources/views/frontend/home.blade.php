@@ -115,12 +115,14 @@
                     </div>
                   </div>
                   <div class="card-block-info">
-                    <h5><a href="job-details.html">{{$item->title}}</a></h5>
+                    <h5><a href="job-details">{{$item->title}}</a></h5>
                     <div class="mt-5"><span class="card-location mr-15">{{$item->location->name}}</span><span class="card-time">{{$item->created_at}}</span></div>
                     <div class="card-2-bottom mt-20">
                       <div class="row">
-                        <div class="col-xl-7 col-md-7 mb-2"><a class="btn btn-tags-sm mr-5" href="jobs-grid.html">Figma</a><a class="btn btn-tags-sm mr-5" href="jobs-grid.html">Adobe XD</a>
+                        @foreach($item->tag as $tag)
+                        <div class="col-xl-3 col-md-4 col-sm-6 mb-2"><a class="btn btn-tags-sm mr-5" href="jobs-grid.html">{{$tag}}</a>
                         </div>
+                        @endforeach
                         <div class="col-xl-5 col-md-5 text-lg-end"><span class="card-text-price">{{$item->salary}}</span><span class="text-muted">/Hour</span></div>
                       </div>
                     </div>
@@ -129,27 +131,6 @@
                 </div>
               </div>
               @endforeach
-              <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                <div class="card-grid-2 grid-bd-16 hover-up">
-                  <div class="card-grid-2-image"><span class="lbl-hot"><span>Full time</span></span>
-                    <div class="image-box">
-                      <figure><img src="assets/imgs/page/homepage2/img2.png" alt="jobBox"></figure>
-                    </div>
-                  </div>
-                  <div class="card-block-info">
-                    <h5><a href="job-details.html">Digital Marketing Manager</a></h5>
-                    <div class="mt-5"><span class="card-location mr-15">Chicago, US</span><span class="card-time">6 mins ago</span></div>
-                    <div class="card-2-bottom mt-20">
-                      <div class="row">
-                        <div class="col-xl-7 col-md-7 mb-2"><a class="btn btn-tags-sm mr-5" href="jobs-grid.html">SEO</a><a class="btn btn-tags-sm mr-5" href="jobs-grid.html">Word</a>
-                        </div>
-                        <div class="col-xl-5 col-md-5 text-lg-end"><span class="card-text-price">$80 - $150</span><span class="text-muted">/Hour</span></div>
-                      </div>
-                    </div>
-                    <p class="font-sm color-text-paragraph mt-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae architecto eveniet, dolor quo repellendus pariatur</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -178,16 +159,6 @@
                   </a></div>
               </div>
               @endforeach
-              <div class="swiper-slide hover-up">
-                <div class="card-grid-5 card-category hover-up" style="background-image: url('assets/imgs/page/homepage2/img-big2.png')"><a href="jobs-grid.html">
-                    <div class="box-cover-img">
-                      <div class="content-bottom">
-                        <h6 class="color-white mb-5">Human resource</h6>
-                        <p class="color-white font-xs"><span>154</span><span> Jobs Available</span></p>
-                      </div>
-                    </div>
-                  </a></div>
-              </div>
             </div>
           </div>
           <div class="swiper-button-next swiper-button-next-1"></div>
@@ -220,20 +191,6 @@
             </div>
           </div>
           @endforeach
-          <div class="col-xl-4 col-lg-4 col-md-7 col-sm-12 col-12">
-            <div class="card-image-top hover-up"><a href="jobs-grid.html">
-                <div class="image" style="background-image: url(assets/imgs/page/homepage1/location2.png);"><span class="lbl-hot">Trending</span></div>
-              </a>
-              <div class="informations"><a href="jobs-grid.html">
-                  <h5>London, England</h5>
-                </a>
-                <div class="row">
-                  <div class="col-lg-6 col-6"><span class="text-14 color-text-paragraph-2">7 Vacancy</span></div>
-                  <div class="col-lg-6 col-6 text-end"><span class="color-text-paragraph-2 text-14">68 companies</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

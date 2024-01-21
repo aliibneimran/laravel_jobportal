@@ -84,9 +84,15 @@
                                         <td>{{$item->location->name}}</td>
                                         <td>{{$item->salary}}</td>
                                         <td>
-                                            {{ implode(', ', $item->tag) }}
+                                            <!-- {{ implode(', ', $item->tag) }} -->
+                                            <ul></ul>
+                                            @foreach($item->tag as $tag)
+                                            <li>{{$tag}}</li>
+                                            @endforeach
+                                            </ul>
                                         </td>
-                                        <td>@if($item->availability == 1)
+                                        <td>
+                                            @if($item->availability == 1)
                                             Available
                                             @else
                                             Not Available
@@ -94,7 +100,7 @@
                                         </td>
                                         <td>
                                             <a href="jobs/edit/{{$item->id}}"><i class="fas fa-edit"></i></a>
-                                            <a href="jobs/delete/{{$item->id}}"><i class="fas fa-trash-alt"></i></a>
+                                            <a href="jobs/delete/{{$item->id}}" onclick="return confirm('Are you sure to delete')"><i class="fas fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
                                     @endforeach

@@ -28,6 +28,7 @@ class Job extends Model
 
     public function getTagAttribute($value)
     {
-        return $this->attributes['tag'] = json_decode($value);
+        // return $this->attributes['tag'] = json_decode($value);
+        return is_array($value) ? $value : json_decode($value, true);
     }
 }

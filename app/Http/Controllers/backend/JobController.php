@@ -18,7 +18,7 @@ class JobController extends Controller
         // $data['categories'] = Category::all();
         $data['jobs'] = Job::all();
         $data['locations'] = Location::all();
-        return view('backend.jobs.index',$data);
+        return view('backend.jobs.index', $data);
         // dd($data);
     }
 
@@ -29,7 +29,7 @@ class JobController extends Controller
     {
         $data['categories'] = Category::all();
         $data['locations'] = Location::all();
-        return view('backend.jobs.create',$data);
+        return view('backend.jobs.create', $data);
     }
 
     /**
@@ -45,9 +45,9 @@ class JobController extends Controller
             'location' => 'required',
             'photo' => 'mimes:jpg,jpeg,png',
         ]);
-        $filename = time().'.'.$request->photo->extension();
+        $filename = time() . '.' . $request->photo->extension();
         // dd($request->photo);
-        if($validate){
+        if ($validate) {
             // $tags = implode(",", $request->get('tags'));
             $data = [
                 'title' => $request->title,
@@ -56,14 +56,14 @@ class JobController extends Controller
                 'category_id' => $request->category,
                 'location_id' => $request->location,
                 'tag' => $request->tags,
-                'availability'=> $request->availability,
-                'image'=> $filename,
+                'availability' => $request->availability,
+                'image' => $filename,
             ];
         }
         // print_r($data);
         // $model = new Job;
-        if(Job::create($data)){
-             $request->photo->move('uploads', $filename);
+        if (Job::create($data)) {
+            $request->photo->move('uploads', $filename);
             return redirect('all-job')->with('msg', 'Job Successfully Post');
         }
     }
@@ -83,23 +83,30 @@ class JobController extends Controller
     {
         $data['single'] = Job::find($jid);
         $data['categories'] = Category::all();
-        return view('backend.jobs.edit',$data);
+        $data['locations'] = Location::all();
+        return view('backend.jobs.edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request,$jid)
+    public function update(Request $request, $jid)
     {
         $job = Job::find($jid);
+        $filename = time() . '.' . $request->photo->extension();
         $data = [
             'title' => $request->title,
             'description' => $request->description,
             'salary' => $request->salary,
             'category_id' => $request->category,
+            'location_id' => $request->location,
+            'tag' => $request->tags,
+            'availability' => $request->availability,
+            'image' => $filename,
         ];
         $job->update($data);
-        return redirect('all-job')->with('msg', 'Successfully Update'); 
+        $request->photo->move('uploads', $filename);
+        return redirect('all-job')->with('msg', 'Successfully Update');
     }
 
     /**
@@ -109,6 +116,6 @@ class JobController extends Controller
     {
         $job = Job::find($jid);
         $job->delete($jid);
-        return redirect('all-job')->with('msg', 'Successfully Deleted'); 
+        return redirect('all-job')->with('msg', 'Successfully Deleted');
     }
 }
