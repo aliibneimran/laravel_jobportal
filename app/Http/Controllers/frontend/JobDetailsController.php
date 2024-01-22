@@ -10,10 +10,12 @@ use Illuminate\Http\Request;
 
 class JobDetailsController extends Controller
 {
-    public function index(){
-        $data['jobs'] = Job::all();
+    public function index($id){
+        $data['jobs'] = Job::find($id);
         $data['locations'] = Location::all();
         $data['categories'] = Category::all();
+        // dd($data);
         return view('frontend/jobDetails',$data);
     }
+    
 }

@@ -7,6 +7,7 @@ use App\Models\Job;
 use App\Models\Location;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class JobController extends Controller
 {
@@ -15,7 +16,6 @@ class JobController extends Controller
      */
     public function index()
     {
-        // $data['categories'] = Category::all();
         $data['jobs'] = Job::all();
         $data['locations'] = Location::all();
         return view('backend.jobs.index', $data);
@@ -43,6 +43,7 @@ class JobController extends Controller
             'salary' => 'required|numeric',
             'category' => 'required',
             'location' => 'required',
+            'vacancy' => 'required|numeric',
             'photo' => 'mimes:jpg,jpeg,png',
         ]);
         $filename = time() . '.' . $request->photo->extension();
@@ -53,6 +54,7 @@ class JobController extends Controller
                 'title' => $request->title,
                 'description' => $request->description,
                 'salary' => $request->salary,
+                'vacancy' => $request->vacancy,
                 'category_id' => $request->category,
                 'location_id' => $request->location,
                 'tag' => $request->tags,
@@ -98,6 +100,7 @@ class JobController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'salary' => $request->salary,
+            'vacancy' => $request->vacancy,
             'category_id' => $request->category,
             'location_id' => $request->location,
             'tag' => $request->tags,

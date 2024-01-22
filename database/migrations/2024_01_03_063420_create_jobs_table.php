@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('image',50);
             $table->string('tag',200);
             $table->boolean('availability')->default(0)->nullable();
+            $table->tinyInteger('vacancy');
             $table->tinyInteger('category_id');
             $table->tinyInteger('location_id');
             $table->timestamp('created_at')->useCurrent();

@@ -12,6 +12,7 @@
       <li> <a class="dashboard2" href="{{URL('catagories/')}}"><img src="{{asset('backend/assets/imgs/page/dashboard/folder-plus.svg')}}" alt="jobBox"><span class="name">Categories</span></a>
       </li>
       <li> <a class="dashboard2" href="{{URL('locations/')}}"><img src="{{asset('backend/assets/imgs/page/dashboard/folder-plus.svg')}}" alt="jobBox"><span class="name">Locations</span></a>
+      <li> <a class="dashboard2" href="{{URL('industries/')}}"><img src="{{asset('backend/assets/imgs/page/dashboard/folder-plus.svg')}}" alt="jobBox"><span class="name">Industries</span></a>
       </li>
       <li> <a class="dashboard2" href="/payments"><img src="{{asset('backend/assets/imgs/page/dashboard/credit-card.svg')}}" alt="jobBox"><span class="name">Payments</span></a>
       </li>

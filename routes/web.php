@@ -58,7 +58,9 @@ Route::middleware('auth')->group(function () {
 //frontend
 Route::get('/', [FrontendHomeController::class, 'index']);
 Route::get('/jobs', [FrontendJobListController::class, 'index']);
-Route::get('/job-details', [FrontendJobDetailsController::class, 'index']);
+
+Route::get('/job/details/{id}', [FrontendJobDetailsController::class, 'index'])->name('job.details');;
+
 Route::get('/companies', [FrontendCompanyController::class, 'index']);
 Route::get('/company-details', [FrontendCompanyDetailsController::class, 'index']);
 Route::get('/candidates', [FrontendCandidateController::class, 'index']);
@@ -73,7 +75,7 @@ Route::get('/all-candidates', [BackendCandidateController::class, 'index']);
 Route::get('/all-companies', [BackendCompanyController::class, 'index']);
 Route::get('/all-jobs', [BackendJobController::class, 'index']);
 Route::get('/profile', [BackendProfileController::class, 'index']);
-Route::get('/post-job', [BackendJobPostController::class, 'index']);
+// Route::get('/post-job', [BackendJobPostController::class, 'index']);
 Route::get('/categories', [BackendCategoryController::class, 'index']);
 Route::get('/add-category', [BackendCategoryController::class, 'create']);
 Route::get('/payments', [BackendPaymentController::class, 'index']);

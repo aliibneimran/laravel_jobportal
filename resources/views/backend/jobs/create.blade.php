@@ -77,6 +77,12 @@
                                                 <input class="form-control" type="text" placeholder="$2200 - $2500" name="salary" value="{{old('salary')}}">
                                             </div>
                                         </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group mb-30">
+                                                <label class="font-sm color-text-mutted mb-10">Vacancy</label>
+                                                <input class="form-control" type="number" placeholder="" name="vacancy" value="{{old('vacancy')}}">
+                                            </div>
+                                        </div>
                                         <div class="mb-3">
                                             <label class="form-label">Tags:</label>
 

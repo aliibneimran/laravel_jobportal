@@ -11,68 +11,69 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\JobController;
+use App\Http\Controllers\IndustryController;
 use App\Http\Controllers\LocationController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
-                ->name('register');
+        ->name('register');
 
     Route::post('register', [RegisteredUserController::class, 'store']);
 
     Route::get('user/login', [AuthenticatedSessionController::class, 'create'])
-                ->name('login');
+        ->name('login');
 
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
-                ->name('password.request');
+        ->name('password.request');
 
     Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
-                ->name('password.email');
+        ->name('password.email');
 
     Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
-                ->name('password.reset');
+        ->name('password.reset');
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
-                ->name('password.store');
+        ->name('password.store');
 });
 
 Route::middleware('auth')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)
-                ->name('verification.notice');
+        ->name('verification.notice');
 
     Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
-                ->middleware(['signed', 'throttle:6,1'])
-                ->name('verification.verify');
+        ->middleware(['signed', 'throttle:6,1'])
+        ->name('verification.verify');
 
     Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
-                ->middleware('throttle:6,1')
-                ->name('verification.send');
+        ->middleware('throttle:6,1')
+        ->name('verification.send');
 
     Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
-                ->name('password.confirm');
+        ->name('password.confirm');
 
     Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
 
     Route::put('password', [PasswordController::class, 'update'])->name('password.update');
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
-                ->name('logout');
+        ->name('logout');
 
     //Category
-    Route::get('catagories', [CategoryController::class, 'index'])
-                ->name('categories.index'); 
-    Route::get('catagories/create', [CategoryController::class, 'create'])
-                ->name('categories.create');
-    Route::post('catagories/store', [CategoryController::class, 'store'])
-                ->name('categories.store');
-    Route::get('catagories/edit/{id}', [CategoryController::class, 'edit'])
-                ->name('categories.edit');
-    Route::get('catagories/update', [CategoryController::class, 'update'])
-                ->name('categories.update');
-    Route::get('catagories/delete/{cid}', [CategoryController::class, 'destroy'])
-                ->name('categories.delete');
+    // Route::get('catagories', [CategoryController::class, 'index'])
+    //             ->name('categories.index'); 
+    // Route::get('catagories/create', [CategoryController::class, 'create'])
+    //             ->name('categories.create');
+    // Route::post('catagories/store', [CategoryController::class, 'store'])
+    //             ->name('categories.store');
+    // Route::get('catagories/edit/{id}', [CategoryController::class, 'edit'])
+    //             ->name('categories.edit');
+    // Route::get('catagories/update', [CategoryController::class, 'update'])
+    //             ->name('categories.update');
+    // Route::get('catagories/delete/{cid}', [CategoryController::class, 'destroy'])
+    //             ->name('categories.delete');
 
     // //job
     // Route::get('all-job', [JobController::class, 'index'])
@@ -87,48 +88,62 @@ Route::middleware('auth')->group(function () {
     //             ->name('job.update');
     // Route::get('jobs/delete{id}', [JobController::class, 'delete'])
     //             ->name('job.delete');
-                
-                
+
+
 });
 
-    //Category
-    // Route::get('catagories', [CategoryController::class, 'index'])
-    //             ->name('categories.index'); 
-    // Route::get('catagories/create', [CategoryController::class, 'create'])
-    //             ->name('categories.create');
-    // Route::post('catagories/store', [CategoryController::class, 'store'])
-    //             ->name('categories.store');
-    // Route::get('catagories/edit/{cid}', [CategoryController::class, 'edit'])
-    //             ->name('categories.edit');
-    // Route::post('catagories/update/{cid}', [CategoryController::class, 'update'])
-    //             ->name('categories.update');
-    // Route::get('catagories/delete/{cid}', [CategoryController::class, 'destroy'])
-    //             ->name('categories.delete');
-    
-    //Location
-    Route::get('locations', [LocationController::class, 'index'])
-    ->name('locations.index'); 
-    Route::get('locations/create', [LocationController::class, 'create'])
+//Category
+Route::get('catagories', [CategoryController::class, 'index'])
+    ->name('categories.index');
+Route::get('catagories/create', [CategoryController::class, 'create'])
+    ->name('categories.create');
+Route::post('catagories/store', [CategoryController::class, 'store'])
+    ->name('categories.store');
+Route::get('catagories/edit/{cid}', [CategoryController::class, 'edit'])
+    ->name('categories.edit');
+Route::post('catagories/update/{cid}', [CategoryController::class, 'update'])
+    ->name('categories.update');
+Route::get('catagories/delete/{cid}', [CategoryController::class, 'destroy'])
+    ->name('categories.delete');
+
+//Industry
+Route::get('industries', [IndustryController::class, 'index'])
+    ->name('industries.index');
+Route::get('industries/create', [IndustryController::class, 'create'])
+    ->name('industries.create');
+Route::post('industries/store', [IndustryController::class, 'store'])
+    ->name('industries.store');
+Route::get('industries/edit/{cid}', [IndustryController::class, 'edit'])
+    ->name('industries.edit');
+Route::post('industries/update/{cid}', [IndustryController::class, 'update'])
+    ->name('industries.update');
+Route::get('industries/delete/{cid}', [IndustryController::class, 'destroy'])
+    ->name('industries.delete');
+
+//Location
+Route::get('locations', [LocationController::class, 'index'])
+    ->name('locations.index');
+Route::get('locations/create', [LocationController::class, 'create'])
     ->name('locations.create');
-    Route::post('locations/store', [LocationController::class, 'store'])
+Route::post('locations/store', [LocationController::class, 'store'])
     ->name('locations.store');
-    Route::get('locations/edit/{lid}', [LocationController::class, 'edit'])
+Route::get('locations/edit/{lid}', [LocationController::class, 'edit'])
     ->name('locations.edit');
-    Route::post('locations/update/{cld}', [LocationController::class, 'update'])
+Route::post('locations/update/{cld}', [LocationController::class, 'update'])
     ->name('locations.update');
-    Route::get('locations/delete/{lid}', [LocationController::class, 'destroy'])
+Route::get('locations/delete/{lid}', [LocationController::class, 'destroy'])
     ->name('locations.delete');
 
-    //job
-    Route::get('all-job', [JobController::class, 'index'])
-                ->name('jobs.index'); 
-    Route::get('jobs/create', [JobController::class, 'create'])
-                ->name('jobs.create');
-    Route::post('jobs/store', [JobController::class, 'store'])
-                ->name('jobs.store');
-    Route::get('jobs/edit/{jid}', [JobController::class, 'edit'])
-                ->name('jobs.edit');
-    Route::post('jobs/update/{jid}', [JobController::class, 'update'])
-                ->name('jobs.update');
-    Route::get('jobs/delete/{jid}', [JobController::class, 'destroy'])
-                ->name('jobs.delete');
+//job
+Route::get('all-job', [JobController::class, 'index'])
+    ->name('jobs.index');
+Route::get('jobs/create', [JobController::class, 'create'])
+    ->name('jobs.create');
+Route::post('jobs/store', [JobController::class, 'store'])
+    ->name('jobs.store');
+Route::get('jobs/edit/{jid}', [JobController::class, 'edit'])
+    ->name('jobs.edit');
+Route::post('jobs/update/{jid}', [JobController::class, 'update'])
+    ->name('jobs.update');
+Route::get('jobs/delete/{jid}', [JobController::class, 'destroy'])
+    ->name('jobs.delete');

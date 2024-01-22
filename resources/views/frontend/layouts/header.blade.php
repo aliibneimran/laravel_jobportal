@@ -44,7 +44,7 @@
                   <li><a href="blog-details">Blog Single</a></li>
                 </ul>
               </li>
-              <li class="dashboard"><a href="http://wp.alithemes.com/html/jobbox/demos/dashboard" target="_blank">Dashboard</a></li>
+              <li class="dashboard"><a href="/admin" target="_blank">Dashboard</a></li>
             </ul>
           </nav>
           <div class="burger-icon burger-icon-white"><span class="burger-icon-top"></span><span class="burger-icon-mid"></span><span class="burger-icon-bottom"></span></div>

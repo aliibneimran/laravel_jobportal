@@ -13,14 +13,11 @@
                     <div class="form-find text-start mt-40 wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
                         <form>
                             <div class="box-industry">
-                                <select class="form-input mr-10 select-active input-industry">
+                                <select class="form-input mr-10 select-active input-industry" name="industry">
                                     <option value="0">Industry</option>
-                                    <option value="1">Software</option>
-                                    <option value="2">Finance</option>
-                                    <option value="3">Recruting</option>
-                                    <option value="4">Management</option>
-                                    <option value="5">Advertising</option>
-                                    <option value="6">Development</option>
+                                    @foreach($industries as $item)
+                                    <option value="{{$item->id}}" {{old('industry')==$item->id?'selected':''}}>{{$item->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <select class="form-input mr-10 select-active">
@@ -84,10 +81,12 @@
                                         <h6><a href="job-details.html">{{$item->title}}</a></h6>
                                         <div class="mt-5"><span class="card-briefcase">{{$item->category->name}}</span><span class="card-time">{{$item->created_at}}</span></div>
                                         <p class="font-sm color-text-paragraph mt-15">{{$item->description}}</p>
+                                        <div class="row">
                                             @foreach($item->tag as $tag)
-                                            <div class="mt-5 col-xl-4 col-md-4 col-sm-4"><a class="btn btn-grey-small mr-5" href="jobs-grid.html">{{$tag}}</a>
+                                            <div class="mt-5 col-xl-4 col-md-4 col-sm-4 "><a class="btn btn-grey-small mr-5" href="jobs-grid.html">{{$tag}}</a>
                                             </div>
                                             @endforeach
+                                        </div>
                                         <div class="card-2-bottom mt-30">
                                             <div class="row">
                                                 <div class="col-lg-7 col-7"><span class="card-text-price">{{$item->salary}}</span></div>

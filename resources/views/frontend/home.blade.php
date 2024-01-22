@@ -13,14 +13,11 @@
           <div class="form-find mt-40 wow animate__animated animate__fadeIn" data-wow-delay=".2s">
             <form>
               <div class="box-industry">
-                <select class="form-input mr-10 select-active input-industry">
+                <select class="form-input mr-10 select-active input-industry" name="industry">
                   <option value="0">Industry</option>
-                  <option value="1">Software</option>
-                  <option value="2">Finance</option>
-                  <option value="3">Recruting</option>
-                  <option value="4">Management</option>
-                  <option value="5">Advertising</option>
-                  <option value="6">Development</option>
+                  @foreach($industries as $item)
+                  <option value="{{$item->id}}" {{old('industry')==$item->id?'selected':''}}>{{$item->name}}</option>
+                  @endforeach
                 </select>
               </div>
               <select class="form-input mr-10 select-active" name="location">
@@ -115,7 +112,7 @@
                     </div>
                   </div>
                   <div class="card-block-info">
-                    <h5><a href="job-details">{{$item->title}}</a></h5>
+                    <h5><a href="/job/details/{{$item->id}}">{{$item->title}}</a></h5>
                     <div class="mt-5"><span class="card-location mr-15">{{$item->location->name}}</span><span class="card-time">{{$item->created_at}}</span></div>
                     <div class="card-2-bottom mt-20">
                       <div class="row">
@@ -126,7 +123,7 @@
                         <div class="col-xl-5 col-md-5 text-lg-end"><span class="card-text-price">{{$item->salary}}</span><span class="text-muted">/Hour</span></div>
                       </div>
                     </div>
-                    <p class="font-sm color-text-paragraph mt-20">{{$item->description}}</p>
+                    <p class="font-sm color-text-paragraph mt-20">{{ Str::words($item->description, $words = 20, $end = '...') }}</p>
                   </div>
                 </div>
               </div>
@@ -178,13 +175,17 @@
           @foreach($locations as $item)
           <div class="col-xl-3 col-lg-3 col-md-5 col-sm-12 col-12">
             <div class="card-image-top hover-up"><a href="jobs-grid.html">
-                <div class="image" style="background-image: url(assets/imgs/page/homepage1/location1.png);"><span class="lbl-hot">Hot</span></div>
+                <div class="image" style="background-image: url(assets/imgs/page/homepage1/location1.png);"></div>
+                <!-- <span class="lbl-hot"></span> -->
               </a>
               <div class="informations"><a href="jobs-grid.html">
                   <h5>{{$item->name}}</h5>
                 </a>
                 <div class="row">
-                  <div class="col-lg-6 col-6"><span class="text-14 color-text-paragraph-2">5 Vacancy</span></div>
+                  <!-- @php
+                  $vacancyCount = $jobs->where('location_id', $item->id)->count();
+                  @endphp -->
+                  <div class="col-lg-6 col-6"><span class="text-14 color-text-paragraph-2">{{ $item->job->sum('vacancy') }} Vacancy</span></div>
                   <div class="col-lg-6 col-6 text-end"><span class="color-text-paragraph-2 text-14">120 companies</span></div>
                 </div>
               </div>

@@ -7,103 +7,71 @@
     <section class="section-box mt-50">
         <div class="container">
             <div class="row">
+
                 <div class="col-lg-8 col-md-12 col-sm-12 col-12">
                     <div class="box-border-single">
                         <div class="row mt-10">
                             <div class="col-lg-8 col-md-12">
-                                <h3>Senior Full Stack Engineer, Creator Success Full Time</h3>
-                                <div class="mt-0 mb-15"><span class="card-briefcase">Fulltime</span><span class="card-time">3 mins ago</span></div>
+                                <h3>{{$jobs->title}}</h3>
+                                <div class="mt-0 mb-15"><span class="card-briefcase">{{$jobs->category->name}}</span><span class="card-time">{{$jobs->created_at}}</span></div>
                             </div>
                             <div class="col-lg-4 col-md-12 text-lg-end">
                                 <div class="btn btn-apply-icon btn-apply btn-apply-big hover-up" data-bs-toggle="modal" data-bs-target="#ModalApplyJobForm">Apply now</div>
                             </div>
                         </div>
                         <div class="border-bottom pt-10 pb-10"></div>
-                        <div class="banner-hero banner-image-single mt-10 mb-20"><img src="assets/imgs/page/job-single-2/img.png" alt="jobBox"></div>
+                        <div class="banner-hero banner-image-single mt-10 mb-20"><img src="{{ asset('uploads/' . $jobs->image) }}" alt="jobBox"></div>
                         <div class="job-overview">
                             <h5 class="border-bottom pb-15 mb-30">Overview</h5>
                             <div class="row">
                                 <div class="col-md-6 d-flex">
-                                    <div class="sidebar-icon-item"><img src="assets/imgs/page/job-single/industry.svg" alt="jobBox"></div>
+                                    <div class="sidebar-icon-item"><img src="{{asset('assets/imgs/page/job-single/industry.svg')}}" alt="jobBox"></div>
                                     <div class="sidebar-text-info ml-10"><span class="text-description industry-icon mb-10">Industry</span><strong class="small-heading"> Mechanical / Auto / Automotive, Civil / Construction</strong></div>
                                 </div>
                                 <div class="col-md-6 d-flex mt-sm-15">
-                                    <div class="sidebar-icon-item"><img src="assets/imgs/page/job-single/job-level.svg" alt="jobBox"></div>
+                                    <div class="sidebar-icon-item"><img src="{{asset('assets/imgs/page/job-single/job-level.svg')}}" alt="jobBox"></div>
                                     <div class="sidebar-text-info ml-10"><span class="text-description joblevel-icon mb-10">Job level</span><strong class="small-heading">Experienced (Non - Manager)</strong></div>
                                 </div>
                             </div>
                             <div class="row mt-25">
                                 <div class="col-md-6 d-flex mt-sm-15">
-                                    <div class="sidebar-icon-item"><img src="assets/imgs/page/job-single/salary.svg" alt="jobBox"></div>
-                                    <div class="sidebar-text-info ml-10"><span class="text-description salary-icon mb-10">Salary</span><strong class="small-heading">$800 - $1000</strong></div>
+                                    <div class="sidebar-icon-item"><img src="{{asset('assets/imgs/page/job-single/salary.svg')}}" alt="jobBox"></div>
+                                    <div class="sidebar-text-info ml-10"><span class="text-description salary-icon mb-10">Salary</span><strong class="small-heading">{{$jobs->salary}}</strong></div>
                                 </div>
                                 <div class="col-md-6 d-flex">
-                                    <div class="sidebar-icon-item"><img src="assets/imgs/page/job-single/experience.svg" alt="jobBox"></div>
+                                    <div class="sidebar-icon-item"><img src="{{asset('assets/imgs/page/job-single/experience.svg')}}" alt="jobBox"></div>
                                     <div class="sidebar-text-info ml-10"><span class="text-description experience-icon mb-10">Experience</span><strong class="small-heading">1 - 2 years</strong></div>
                                 </div>
                             </div>
                             <div class="row mt-25">
                                 <div class="col-md-6 d-flex mt-sm-15">
-                                    <div class="sidebar-icon-item"><img src="assets/imgs/page/job-single/job-type.svg" alt="jobBox"></div>
+                                    <div class="sidebar-icon-item"><img src="{{asset('assets/imgs/page/job-single/job-type.svg')}}" alt="jobBox"></div>
                                     <div class="sidebar-text-info ml-10"><span class="text-description jobtype-icon mb-10">Job type</span><strong class="small-heading">Permanent</strong></div>
                                 </div>
                                 <div class="col-md-6 d-flex mt-sm-15">
-                                    <div class="sidebar-icon-item"><img src="assets/imgs/page/job-single/deadline.svg" alt="jobBox"></div>
+                                    <div class="sidebar-icon-item"><img src="{{asset('assets/imgs/page/job-single/deadline.svg')}}" alt="jobBox"></div>
                                     <div class="sidebar-text-info ml-10"><span class="text-description mb-10">Deadline</span><strong class="small-heading">10/08/2022</strong></div>
                                 </div>
                             </div>
                             <div class="row mt-25">
                                 <div class="col-md-6 d-flex mt-sm-15">
-                                    <div class="sidebar-icon-item"><img src="assets/imgs/page/job-single/updated.svg" alt="jobBox"></div>
-                                    <div class="sidebar-text-info ml-10"><span class="text-description jobtype-icon mb-10">Updated</span><strong class="small-heading">10/07/2022</strong></div>
+                                    <div class="sidebar-icon-item"><img src="{{asset('assets/imgs/page/job-single/updated.svg')}}" alt="jobBox"></div>
+                                    <div class="sidebar-text-info ml-10"><span class="text-description jobtype-icon mb-10">Updated</span><strong class="small-heading">{{$jobs->updated_at}}</strong></div>
                                 </div>
                                 <div class="col-md-6 d-flex mt-sm-15">
-                                    <div class="sidebar-icon-item"><img src="assets/imgs/page/job-single/location.svg" alt="jobBox"></div>
-                                    <div class="sidebar-text-info ml-10"><span class="text-description mb-10">Location</span><strong class="small-heading">Dallas, Texas Remote Friendly</strong></div>
+                                    <div class="sidebar-icon-item"><img src="{{asset('assets/imgs/page/job-single/location.svg')}}" alt="jobBox"></div>
+                                    <div class="sidebar-text-info ml-10"><span class="text-description mb-10">Location</span><strong class="small-heading">{{$jobs->location->name}}</strong></div>
                                 </div>
                             </div>
                         </div>
                         <div class="content-single">
-                            <h4>Welcome to AliStudio Team</h4>
-                            <p>The AliStudio Design team has a vision to establish a trusted platform that enables productive and healthy enterprises in a world of digital and remote everything, constantly changing work patterns and norms, and the need for organizational resiliency.</p>
-                            <p>
-                                The ideal candidate will have strong creative skills and a portfolio of work which demonstrates their passion for illustrative design and typography. This candidate will have experiences in working with numerous different design platforms such as digital
-                                and print forms.
-                            </p>
-                            <h4>Essential Knowledge, Skills, and Experience</h4>
-                            <ul>
-                                <li>A portfolio demonstrating well thought through and polished end to end customer journeys</li>
-                                <li>5+ years of industry experience in interactive design and / or visual design</li>
-                                <li>Excellent interpersonal skills</li>
-                                <li>Aware of trends in&#x202F;mobile, communications, and collaboration</li>
-                                <li>Ability to create highly polished design prototypes, mockups, and other communication artifacts</li>
-                                <li>The ability to scope and estimate efforts accurately and prioritize tasks and goals independently</li>
-                                <li>History of impacting shipping products with your work</li>
-                                <li>A Bachelor&rsquo;s Degree in Design (or related field) or equivalent professional experience</li>
-                                <li>Proficiency in a variety of design tools such as Figma, Photoshop, Illustrator, and Sketch</li>
-                            </ul>
-                            <h4>Preferred Experience</h4>
-                            <ul>
-                                <li>Designing user experiences for enterprise software / services</li>
-                                <li>Creating and applying established design principles and interaction patterns</li>
-                                <li>Aligning or influencing design thinking with teams working in other geographies</li>
-                            </ul>
-                            <h4>Product Designer</h4>
-                            <p><strong>Product knowledge:</strong> Deeply understand the technology and features of the product area to which you are assigned.</p>
-                            <p><strong>Research:</strong> Provide human and business impact and insights for products.</p>
-                            <p><strong>Deliverables:</strong> Create deliverables for your product area (for example competitive analyses, user flows, low fidelity wireframes, high fidelity mockups, prototypes, etc.) that solve real user problems through
-                                the user experience.
-                            </p>
-                            <p><strong>Communication:</strong> Communicate the results of UX activities within your product area to the design team department, cross-functional partners within your product area, and other interested Superformula team
-                                members using clear language that simplifies complexity.
-                            </p>
+                        {{$jobs->description}}
                         </div>
-                        <div class="author-single"><span>AliThemes</span></div>
                         <div class="single-apply-jobs">
                             <div class="row align-items-center">
                                 <div class="col-md-5"><a class="btn btn-default mr-15" href="#">Apply now</a><a class="btn btn-border" href="#">Save job</a></div>
                                 <div class="col-md-7 text-lg-end social-share">
-                                    <h6 class="color-text-paragraph-2 d-inline-block d-baseline mr-10">Share this</h6><a class="mr-5 d-inline-block d-middle" href="#"><img alt="jobBox" src="assets/imgs/template/icons/share-fb.svg"></a><a class="mr-5 d-inline-block d-middle" href="#"><img alt="jobBox" src="assets/imgs/template/icons/share-tw.svg"></a><a class="mr-5 d-inline-block d-middle" href="#"><img alt="jobBox" src="assets/imgs/template/icons/share-red.svg"></a><a class="d-inline-block d-middle" href="#"><img alt="jobBox" src="assets/imgs/template/icons/share-whatsapp.svg"></a>
+                                    <h6 class="color-text-paragraph-2 d-inline-block d-baseline mr-10">Share this</h6><a class="mr-5 d-inline-block d-middle" href="#"><img alt="jobBox" src="{{asset('assets/imgs/template/icons/share-fb.svg')}}"></a><a class="mr-5 d-inline-block d-middle" href="#"><img alt="jobBox" src="{{asset('assets/imgs/template/icons/share-tw.svg')}}"></a><a class="mr-5 d-inline-block d-middle" href="#"><img alt="jobBox" src="{{asset('assets/imgs/template/icons/share-red.svg')}}"></a><a class="d-inline-block d-middle" href="#"><img alt="jobBox" src="{{asset('assets/imgs/template/icons/share-whatsapp.svg')}}"></a>
                                 </div>
                             </div>
                         </div>
@@ -113,7 +81,7 @@
                     <div class="sidebar-border">
                         <div class="sidebar-heading">
                             <div class="avatar-sidebar">
-                                <figure><img alt="jobBox" src="assets/imgs/page/job-single/avatar.png"></figure>
+                                <figure><img alt="jobBox" src="{{asset('assets/imgs/page/job-single/avatar.png')}}"></figure>
                                 <div class="sidebar-info"><span class="sidebar-company">AliThemes</span><span class="card-location">New York, US</span><a class="link-underline mt-15" href="#">02 Open Jobs</a></div>
                             </div>
                         </div>
@@ -128,46 +96,42 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="sidebar-border">
+                    <!-- <div class="sidebar-border">
                         <h6 class="f-18">Similar jobs</h6>
                         <div class="sidebar-list-job">
                             <ul>
-                                @foreach($jobs as $item)
                                 <li>
                                     <div class="card-list-4 wow animate__animated animate__fadeIn hover-up">
                                         <div class="image"><a href="job-details.html"><img src="assets/imgs/brands/brand-1.png" alt="jobBox"></a></div>
                                         <div class="info-text">
-                                            <h5 class="font-md font-bold color-brand-1"><a href="job-details.html">{{$item->title}}</a></h5>
-                                            <div class="mt-0"><span class="card-briefcase">{{$item->category->name}}</span><span class="card-time"><span>{{$item->created_at}}</span><span> mins ago</span></span></div>
+                                            <h5 class="font-md font-bold color-brand-1"><a href="job-details.html">{{$jobs->title}}</a></h5>
+                                            <div class="mt-0"><span class="card-briefcase">{{$jobs->category->name}}</span><span class="card-time"><span>{{$jobs->created_at}}</span><span> mins ago</span></span></div>
                                             <div class="mt-5">
                                                 <div class="row">
                                                     <div class="col-6">
-                                                        <h6 class="card-price">{{$item->salary}}<span>/Hour</span></h6>
+                                                        <h6 class="card-price">{{$jobs->salary}}<span>/Hour</span></h6>
                                                     </div>
-                                                    <div class="col-6 text-end"><span class="card-briefcase">{{$item->location->name}}</span></div>
+                                                    <div class="col-6 text-end"><span class="card-briefcase">{{$jobs->location->name}}</span></div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </li>
-                                @endforeach                                 
+                                </li>                              
                             </ul>
                         </div>
-                    </div>
-                    <div class="sidebar-border">
-                        <h6 class="f-18">Tags</h6>
-                        @foreach($jobs as $item)
-                        @foreach($item->tag as $tag)
+                    </div> -->
+                    <!-- <div class="sidebar-border"> -->
+                        <!-- <h6 class="f-18">Tags</h6>
+                        @foreach($jobs as $tag)
                         <div class="sidebar-list-job"><a class="btn btn-grey-small bg-14 mb-10 mr-5" href="jobs-grid.html">{{$tag}}</a>
                         </div>
-                        @endforeach
-                        @endforeach
+                        @endforeach -->
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="section-box mt-50 mb-50">
+    <!-- <section class="section-box mt-50 mb-50">
         <div class="container">
             <div class="text-left">
                 <h2 class="section-title mb-10 wow animate__animated animate__fadeInUp">Featured Jobs</h2>
@@ -177,29 +141,27 @@
                 <div class="box-swiper style-nav-top">
                     <div class="swiper-container swiper-group-4 swiper">
                         <div class="swiper-wrapper pb-10 pt-5">
-                            @foreach($jobs as $item)
                             <div class="swiper-slide">
                                 <div class="card-grid-2 hover-up wow animate__animated animate__fadeIn">
                                     <div class="card-grid-2-image-left"><span class="flash"></span>
                                         <div class="image-box"><img src="assets/imgs/brands/brand-6.png" alt="jobBox"></div>
-                                        <div class="right-info"><a class="name-job" href="company-details.html">Quora JSC</a><span class="location-small">{{$item->location->name}}</span></div>
+                                        <div class="right-info"><a class="name-job" href="company-details.html">Quora JSC</a><span class="location-small">{{$jobs->location->name}}</span></div>
                                     </div>
                                     <div class="card-block-info">
-                                        <h6><a href="job-details.html">{{$item->title}}</a></h6>
-                                        <div class="mt-5"><span class="card-briefcase">{{$item->category->name}}</span><span class="card-time">{{$item->created_at}}<span> minutes ago</span></span></div>
-                                        <p class="font-sm color-text-paragraph mt-15">{{$item->description}}</p>
-                                        @foreach($item->tag as $tag)
+                                        <h6><a href="job-details.html">{{$jobs->title}}</a></h6>
+                                        <div class="mt-5"><span class="card-briefcase">{{$jobs->category->name}}</span><span class="card-time">{{$jobs->created_at}}<span> minutes ago</span></span></div>
+                                        <p class="font-sm color-text-paragraph mt-15">{{$jobs->description}}</p>
+                                        @foreach($jobs as $tag)
                                         <div class="mt-3"><a class="btn btn-grey-small mr-5" href="job-details.html">{{$tag}}</a>
                                         </div>
                                         @endforeach
                                         <div class="card-2-bottom mt-30">
-                                            <div class="col-lg-7 col-7 m-auto"><span class="card-text-price">{{$item->salary}}</span><span class="text-muted">/Hour</span></div>
+                                            <div class="col-lg-7 col-7 m-auto"><span class="card-text-price">{{$jobs->salary}}</span><span class="text-muted">/Hour</span></div>
                                             <div class="col-lg-4 col-4 m-auto p-2"><a class="btn btn-apply-now" href="job-details.html">Apply now</a></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            @endforeach
                         </div>
                     </div>
                     <div class="swiper-button-next swiper-button-next-4"></div>
@@ -208,13 +170,13 @@
                 <div class="text-center"><a class="btn btn-grey" href="#">Load more posts</a></div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section class="section-box mt-50 mb-20">
         <div class="container">
             <div class="box-newsletter">
                 <div class="row">
-                    <div class="col-xl-3 col-12 text-center d-none d-xl-block"><img src="assets/imgs/template/newsletter-left.png" alt="joxBox"></div>
+                    <div class="col-xl-3 col-12 text-center d-none d-xl-block"><img src="{{asset('assets/imgs/template/newsletter-left.png')}}" alt="joxBox"></div>
                     <div class="col-lg-12 col-xl-6 col-12">
                         <h2 class="text-md-newsletter text-center">New Things Will Always<br> Update Regularly</h2>
                         <div class="box-form-newsletter mt-40">
@@ -224,7 +186,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-12 text-center d-none d-xl-block"><img src="assets/imgs/template/newsletter-right.png" alt="joxBox"></div>
+                    <div class="col-xl-3 col-12 text-center d-none d-xl-block"><img src="{{asset('assets/imgs/template/newsletter-right.png')}}" alt="joxBox"></div>
                 </div>
             </div>
         </div>

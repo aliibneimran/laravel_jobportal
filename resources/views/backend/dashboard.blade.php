@@ -25,7 +25,7 @@
                         <div class="card-image"> <img src="backend/assets/imgs/page/dashboard/computer.svg" alt="jobBox"></div>
                         <div class="card-info">
                             <div class="card-title">
-                                <h3>1568<span class="font-sm status up">25<span>%</span></span>
+                                <h3>200<span class="font-sm status up">25<span>%</span></span>
                                 </h3>
                             </div>
                             <p class="color-text-paragraph-2">Interview Schedules</p>

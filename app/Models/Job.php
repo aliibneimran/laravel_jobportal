@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Job extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','description','salary','category_id','location_id','tag','image','availability'];
+    protected $fillable = ['title','description','salary','category_id','location_id','vacancy','industry_id','tag','image','availability'];
     public function category():BelongsTo
     {
       return $this->belongsTo(Category::class); 
@@ -17,6 +17,10 @@ class Job extends Model
     public function location():BelongsTo
     {
       return $this->belongsTo(Location::class); 
+    }
+    public function industry():BelongsTo
+    {
+      return $this->belongsTo(Industry::class); 
     }
 
 

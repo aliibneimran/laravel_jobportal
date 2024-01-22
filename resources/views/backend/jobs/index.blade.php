@@ -63,11 +63,12 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Title</th>
                                         <th>Image</th>
+                                        <th>Title</th>
                                         <th>Category</th>
                                         <th>Location</th>
                                         <th>Salary</th>
+                                        <th>Vacancy</th>
                                         <th>Tags</th>
                                         <th>Availability</th>
                                         <th>Action</th>
@@ -78,11 +79,12 @@
                                     @foreach ($jobs as $item)
                                     <tr>
                                         <td>{{$no++}}</td>
-                                        <td>{{$item->title}}</td>
                                         <td><img src="{{ asset('uploads/' . $item->image) }}" alt="Image" width="50px" height="50px"></td>
+                                        <td>{{$item->title}}</td>
                                         <td>{{$item->category->name}}</td>
                                         <td>{{$item->location->name}}</td>
                                         <td>{{$item->salary}}</td>
+                                        <td>{{$item->vacancy}}</td>
                                         <td>
                                             <!-- {{ implode(', ', $item->tag) }} -->
                                             <ul></ul>
