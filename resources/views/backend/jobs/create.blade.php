@@ -49,74 +49,80 @@
                                                 <textarea class="form-control" name="description" rows="8">{{old('description')}}</textarea>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="form-group mb-30">
-                                                <label class="font-sm color-text-mutted mb-10">Workplace type *</label>
-                                                <select class="form-control" name="category">
-                                                    <option value="">Select</option>
-                                                    @foreach($categories as $cat)
-                                                    <option value="{{$cat->id}}" {{old('category')==$cat->id?'selected':''}}>{{$cat->name}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="form-group mb-30">
-                                                <label class="font-sm color-text-mutted mb-10">Location *</label>
-                                                <select class="form-control" name="location">
-                                                    <option value="">Select</option>
-                                                    @foreach($locations as $item)
-                                                    <option value="{{$item->id}}" {{old('location')==$item->id?'selected':''}}>{{$item->name}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="form-group mb-30">
-                                                <label class="font-sm color-text-mutted mb-10">Salary</label>
-                                                <input class="form-control" type="text" placeholder="$2200 - $2500" name="salary" value="{{old('salary')}}">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="form-group mb-30">
-                                                <label class="font-sm color-text-mutted mb-10">Vacancy</label>
-                                                <input class="form-control" type="number" placeholder="" name="vacancy" value="{{old('vacancy')}}">
-                                            </div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">Tags:</label>
 
-                                            <div class="form-check  mb-1">
-                                                <input type="checkbox" name="tags[]" id="" value="Laravel" {{in_array('Laravel',old('tags',[]))?'checked':''}} data-parsley-mincheck="2" class="form-check-input" />
-                                                <label for="hobby1" class="form-check-label"> Laravel</label>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4">
+                                                <div class="form-group mb-30">
+                                                    <label class="font-sm color-text-mutted mb-10">Category *</label>
+                                                    <select class="form-control" name="category">
+                                                        <option value="">Select</option>
+                                                        @foreach($categories as $cat)
+                                                        <option value="{{$cat->id}}" {{old('category')==$cat->id?'selected':''}}>{{$cat->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div class="form-check  mb-1">
-                                                <input type="checkbox" name="tags[]" id="" value="React" {{in_array('React',old('tags',[]))?'checked':''}} class="form-check-input" />
-                                                <label for="hobby2" class="form-check-label"> React </label>
+                                            <div class="col-lg-4 col-md-4">
+                                                <div class="form-group mb-30">
+                                                    <label class="font-sm color-text-mutted mb-10">Location *</label>
+                                                    <select class="form-control" name="location">
+                                                        <option value="">Select</option>
+                                                        @foreach($locations as $item)
+                                                        <option value="{{$item->id}}" {{old('location')==$item->id?'selected':''}}>{{$item->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div class="form-check ">
-                                                <input type="checkbox" name="tags[]" id="" value="Vue" {{in_array('Vue',old('tags',[]))?'checked':''}} class="form-check-input" />
-                                                <label for="hobby3" class="form-check-label"> Vue </label>
+                                            <div class="col-lg-4 col-md-4">
+                                                <div class="form-group mb-30">
+                                                    <label class="font-sm color-text-mutted mb-10">Industrial*</label>
+                                                    <select class="form-control" name="industry">
+                                                        <option value="">Select</option>
+                                                        @foreach($industry as $item)
+                                                        <option value="{{$item->id}}" {{old('industry_id')==$item->id?'selected':''}}>{{$item->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">Avaiability *:</label>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group mb-30">
+                                                    <label class="font-sm color-text-mutted mb-10">Salary*</label>
+                                                    <input class="form-control" type="text" placeholder="$2200 - $2500" name="salary" value="{{old('salary')}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group mb-30">
+                                                    <label class="font-sm color-text-mutted mb-10">Vacancy*</label>
+                                                    <input class="form-control" type="number" placeholder="" name="vacancy" value="{{old('vacancy')}}">
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                            <div class="form-check mb-1">
-                                                <input type="radio" name="availability" value="1" {{old('availability')?'checked':''}} class="form-check-input">
-                                                <label for="genderM" class="form-check-label">Available</label>
+                                        <div class="row">
+                                            <div class="mb-3 col-lg-6 col-md-6">
+                                                <label class="form-label">Tags*:</label>
+                                                @foreach(['Laravel', 'React', 'Vue','Angular'] as $tag)
+                                                <div class="form-check mb-1">
+                                                    <input type="checkbox" name="tags[]" id="" value="{{ $tag }}" {{ in_array($tag, old('tags', $single->tag ?? [])) ? 'checked' : '' }} class="form-check-input" />
+                                                    <label for="{{ $tag }}" class="form-check-label">{{ $tag }}</label>
+                                                </div>
+                                                @endforeach
                                             </div>
-                                            <div class="form-check">
-                                                <input type="radio" name="availability" value="0" {{old('availability')?'':'checked'}} class="form-check-input">
-                                                <label for="genderF" class="form-check-label">Not Available</label>
+                                            <div class="mb-3 col-lg-6 col-md-6">
+                                                <label class="form-label">Avaiability *:</label>
+                                                <div class="form-check mb-1">
+                                                    <input type="radio" name="availability" value="1" {{old('availability')?'checked':''}} class="form-check-input">
+                                                    <label for="genderM" class="form-check-label">Available</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="radio" name="availability" value="0" {{old('availability')?'':'checked'}} class="form-check-input">
+                                                    <label for="genderF" class="form-check-label">Not Available</label>
+                                                </div>
                                             </div>
                                         </div>
-                                        <!-- <div class="col-lg-6 col-md-6">
-                                            <div class="form-group mb-30">
-                                                <label class="font-sm color-text-mutted mb-10">Tags (optional) </label>
-                                                <input class="form-control" type="text" placeholder="Figma, UI/UX, Sketch...">
-                                            </div>
-                                        </div> -->
+
                                         <div class="col-lg-6 col-md-6">
                                             <div class="form-group mb-30">
                                                 <div class="box-upload">

@@ -7,6 +7,6 @@
 @csrf
     <label for="" class="p-2">Location Name</label>
     <input type="text" name="name"><br><br>
-    <button class="btn btn-success" type="submit">Addddd</button>
+    <button class="btn btn-success" type="submit">Add</button>
 </form>
 @endsection

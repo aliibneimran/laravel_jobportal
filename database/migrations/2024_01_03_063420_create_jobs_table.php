@@ -22,6 +22,7 @@ return new class extends Migration
             $table->tinyInteger('vacancy');
             $table->tinyInteger('category_id');
             $table->tinyInteger('location_id');
+            $table->tinyInteger('industry_id');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

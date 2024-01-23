@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Models\Category;
+use App\Models\Industry;
 use App\Models\Job;
 use App\Models\Location;
 use Illuminate\Http\Request;
@@ -18,6 +19,7 @@ class JobController extends Controller
     {
         $data['jobs'] = Job::all();
         $data['locations'] = Location::all();
+        $data['industry'] = Industry::all();
         return view('backend.jobs.index', $data);
         // dd($data);
     }
@@ -29,6 +31,7 @@ class JobController extends Controller
     {
         $data['categories'] = Category::all();
         $data['locations'] = Location::all();
+        $data['industry'] = Industry::all();
         return view('backend.jobs.create', $data);
     }
 
@@ -43,6 +46,7 @@ class JobController extends Controller
             'salary' => 'required|numeric',
             'category' => 'required',
             'location' => 'required',
+            'industry' => 'required',
             'vacancy' => 'required|numeric',
             'photo' => 'mimes:jpg,jpeg,png',
         ]);
@@ -57,6 +61,7 @@ class JobController extends Controller
                 'vacancy' => $request->vacancy,
                 'category_id' => $request->category,
                 'location_id' => $request->location,
+                'industry_id' => $request->industry,
                 'tag' => $request->tags,
                 'availability' => $request->availability,
                 'image' => $filename,
@@ -86,6 +91,7 @@ class JobController extends Controller
         $data['single'] = Job::find($jid);
         $data['categories'] = Category::all();
         $data['locations'] = Location::all();
+        $data['industry'] = Industry::all();
         return view('backend.jobs.edit', $data);
     }
 
@@ -103,6 +109,7 @@ class JobController extends Controller
             'vacancy' => $request->vacancy,
             'category_id' => $request->category,
             'location_id' => $request->location,
+            'industry_id' => $request->industry,
             'tag' => $request->tags,
             'availability' => $request->availability,
             'image' => $filename,

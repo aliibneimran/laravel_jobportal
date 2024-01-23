@@ -8,12 +8,7 @@
           <nav class="nav-main-menu">
             <ul class="main-menu">
               <li><a class="active" href="/">Home</a></li>
-              <li class="has-children"><a href="jobs">Find a Job</a>
-                <ul class="sub-menu">
-                  <li><a href="jobs">Jobs</a></li>
-                  <li><a href="job-details">Jobs Details </a></li>
-                </ul>
-              </li>
+              <li><a href="jobs">Jobs</a></li>
               <li class="has-children"><a href="companies">Recruiters</a>
                 <ul class="sub-menu">
                   <li><a href="companies">Recruiters</a></li>

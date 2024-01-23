@@ -66,6 +66,7 @@
                                         <th>Image</th>
                                         <th>Title</th>
                                         <th>Category</th>
+                                        <th>Industrial</th>
                                         <th>Location</th>
                                         <th>Salary</th>
                                         <th>Vacancy</th>
@@ -82,6 +83,7 @@
                                         <td><img src="{{ asset('uploads/' . $item->image) }}" alt="Image" width="50px" height="50px"></td>
                                         <td>{{$item->title}}</td>
                                         <td>{{$item->category->name}}</td>
+                                        <td>{{$item->industry->name}}</td>
                                         <td>{{$item->location->name}}</td>
                                         <td>{{$item->salary}}</td>
                                         <td>{{$item->vacancy}}</td>

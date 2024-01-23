@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\JobController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,7 @@ use App\Http\Controllers\backend\JobController as BackendJobController;
 use App\Http\Controllers\backend\JobPostController as BackendJobPostController;
 use App\Http\Controllers\backend\PaymentController as BackendPaymentController;
 use App\Http\Controllers\backend\ProfileController as BackendProfileController;
-
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\frontend\CandidateController as FrontendCandidateController;
 use App\Http\Controllers\frontend\CandidateDetailsController as FrontendCandidateDetailsController;
 use App\Http\Controllers\frontend\CandidateProfileController as FrontendCandidateProfileController;
@@ -26,7 +27,9 @@ use App\Http\Controllers\frontend\JobDetailsController as FrontendJobDetailsCont
 use App\Http\Controllers\frontend\JobListController as FrontendJobListController;
 use App\Http\Controllers\frontend\LoginController as FrontendRegisterController;
 use App\Http\Controllers\frontend\RegisterController as FrontendLoginController;
+use App\Http\Controllers\IndustryController;
 use App\Http\Controllers\JobSeekerController;
+use App\Http\Controllers\LocationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -94,7 +97,83 @@ Route::prefix('jobseeker')->group(function (){
     Route::get('dashboard', [JobSeekerController::class, 'dashboard'])->name('jobseeker.dashboard');
 });
 
+//Autentication
+Route::get('/admin',[AuthController::class,'login']);
+Route::post('login',[AuthController::class,'AuthLogin'])->name('login');
+Route::get('logout',[AuthController::class,'logout'])->name('logout');
+// Route::get('/admin/dashboard',[AdminController::class,'index']);
 
+Route::group(['middleware'=>'admin'],function(){
+    Route::get('admin/dashboard',[DashboardController::class,'index']);
 
+});
+Route::group(['middleware'=>'company'],function(){
+    Route::get('company/dashboard',[DashboardController::class,'index']);
+
+});
+Route::group(['middleware'=>'candidate'],function(){
+    Route::get('candidate/dashboard',[DashboardController::class,'index']);
+
+});
+Route::group(['middleware'=>'editor'],function(){
+    Route::get('editor/dashboard',[DashboardController::class,'index']);
+
+});
+
+//Category
+Route::get('catagories', [CategoryController::class, 'index'])
+    ->name('categories.index');
+Route::get('catagories/create', [CategoryController::class, 'create'])
+    ->name('categories.create');
+Route::post('catagories/store', [CategoryController::class, 'store'])
+    ->name('categories.store');
+Route::get('catagories/edit/{cid}', [CategoryController::class, 'edit'])
+    ->name('categories.edit');
+Route::post('catagories/update/{cid}', [CategoryController::class, 'update'])
+    ->name('categories.update');
+Route::get('catagories/delete/{cid}', [CategoryController::class, 'destroy'])
+    ->name('categories.delete');
+
+//Industry
+Route::get('industries', [IndustryController::class, 'index'])
+    ->name('industries.index');
+Route::get('industries/create', [IndustryController::class, 'create'])
+    ->name('industries.create');
+Route::post('industries/store', [IndustryController::class, 'store'])
+    ->name('industries.store');
+Route::get('industries/edit/{cid}', [IndustryController::class, 'edit'])
+    ->name('industries.edit');
+Route::post('industries/update/{cid}', [IndustryController::class, 'update'])
+    ->name('industries.update');
+Route::get('industries/delete/{cid}', [IndustryController::class, 'destroy'])
+    ->name('industries.delete');
+
+//Location
+Route::get('locations', [LocationController::class, 'index'])
+    ->name('locations.index');
+Route::get('locations/create', [LocationController::class, 'create'])
+    ->name('locations.create');
+Route::post('locations/store', [LocationController::class, 'store'])
+    ->name('locations.store');
+Route::get('locations/edit/{lid}', [LocationController::class, 'edit'])
+    ->name('locations.edit');
+Route::post('locations/update/{cld}', [LocationController::class, 'update'])
+    ->name('locations.update');
+Route::get('locations/delete/{lid}', [LocationController::class, 'destroy'])
+    ->name('locations.delete');
+
+//job
+Route::get('all-job', [JobController::class, 'index'])
+    ->name('jobs.index');
+Route::get('jobs/create', [JobController::class, 'create'])
+    ->name('jobs.create');
+Route::post('jobs/store', [JobController::class, 'store'])
+    ->name('jobs.store');
+Route::get('jobs/edit/{jid}', [JobController::class, 'edit'])
+    ->name('jobs.edit');
+Route::post('jobs/update/{jid}', [JobController::class, 'update'])
+    ->name('jobs.update');
+Route::get('jobs/delete/{jid}', [JobController::class, 'destroy'])
+    ->name('jobs.delete');
 
 require __DIR__ . '/auth.php';

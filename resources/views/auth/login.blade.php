@@ -1,47 +1,101 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!DOCTYPE html>
+<html lang="en">
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="msapplication-TileColor" content="#0E0E0E">
+    <meta name="template-color" content="#0E0E0E">
+    <link rel="manifest" href="manifest.json" crossorigin>
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <meta name="description" content="Index page">
+    <meta name="keywords" content="index, page">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/imgs/template/favicon.svg')}}">
+    <link href="{{asset('assets/css/style.css?version=4.1')}}" rel="stylesheet">
+    <title>Login</title>
+</head>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+<body>
+
+    <main class="main">
+        <div class="box-content">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-box">
+                        <div class="container">
+                            <div class="panel-white mb-30">
+                                <div class="box-padding">
+                                    <div class="login-register">
+                                        <div class="row login-register-cover pb-250">
+                                            <div class="col-lg-4 col-md-6 col-sm-12 mx-auto">
+                                                <div class="form-login-cover">
+                                                    <div class="text-center">
+                                                        <h2 class="mt-10 mb-5 text-brand-1">Login</h2>
+
+                                                    </div>
+                                                </div>
+                                                @if ($errors->any())
+                                                <div class="alert alert-danger">
+                                                    <ul>
+                                                        @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                                @endif
+
+                                                @if (session('msg'))
+                                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                    {{ session('msg') }}
+                                                </div>
+                                                @endif
+                                                <form class="login-register text-start mt-20" method="POST" action="{{ route('login') }}">
+                                                    @csrf
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="input-1">Email
+                                                            address *</label>
+                                                        <input class="form-control" id="input-1" type="email" required="" name="email" placeholder="example@gmail.com">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="input-4">Password *</label>
+                                                        <input class="form-control" id="input-4" type="password" required="" name="password" placeholder="************">
+                                                    </div>
+                                                    <div class="login_footer form-group d-flex justify-content-between">
+                                                        <label class="cb-container">
+                                                            <input type="checkbox" name="remember"><span class="text-small">{{__('Remember me') }}</span><span class="checkmark"></span>
+                                                        </label><a class="text-muted" href="#">Forgot Password</a>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button class="btn btn-brand-1 hover-up w-100" type="submit" name="login">Login</button>
+                                                    </div>
+                                                    <div class="text-muted text-center">Don't have an Account? <a href="register">Sign up</a></div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
+    </main>
+    <script src="{{asset('assets/js/vendor/modernizr-3.6.0.min.js')}}"></script>
+    <script src="{{asset('assets/js/vendor/jquery-3.6.0.min.js')}}"></script>
+    <script src="{{asset('assets/js/vendor/jquery-migrate-3.3.0.min.js')}}"></script>
+    <script src="{{asset('assets/js/vendor/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugins/waypoints.js')}}"></script>
+    <script src="{{asset('assets/js/plugins/magnific-popup.js')}}"></script>
+    <script src="{{asset('assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugins/select2.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugins/swiper-bundle.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugins/jquery.circliful.js')}}"></script>
+    <script src="{{asset('assets/js/main.js?v=4.1')}}"></script>
+</body>
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+</html>

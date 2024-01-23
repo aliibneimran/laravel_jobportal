@@ -26,7 +26,7 @@
                             <div class="row">
                                 <div class="col-md-6 d-flex">
                                     <div class="sidebar-icon-item"><img src="{{asset('assets/imgs/page/job-single/industry.svg')}}" alt="jobBox"></div>
-                                    <div class="sidebar-text-info ml-10"><span class="text-description industry-icon mb-10">Industry</span><strong class="small-heading"> Mechanical / Auto / Automotive, Civil / Construction</strong></div>
+                                    <div class="sidebar-text-info ml-10"><span class="text-description industry-icon mb-10">Industry</span><strong class="small-heading">{{$jobs->industry->name}}</strong></div>
                                 </div>
                                 <div class="col-md-6 d-flex mt-sm-15">
                                     <div class="sidebar-icon-item"><img src="{{asset('assets/imgs/page/job-single/job-level.svg')}}" alt="jobBox"></div>
@@ -46,7 +46,7 @@
                             <div class="row mt-25">
                                 <div class="col-md-6 d-flex mt-sm-15">
                                     <div class="sidebar-icon-item"><img src="{{asset('assets/imgs/page/job-single/job-type.svg')}}" alt="jobBox"></div>
-                                    <div class="sidebar-text-info ml-10"><span class="text-description jobtype-icon mb-10">Job type</span><strong class="small-heading">Permanent</strong></div>
+                                    <div class="sidebar-text-info ml-10"><span class="text-description jobtype-icon mb-10">Job type</span><strong class="small-heading">{{$jobs->category->name}}</strong></div>
                                 </div>
                                 <div class="col-md-6 d-flex mt-sm-15">
                                     <div class="sidebar-icon-item"><img src="{{asset('assets/imgs/page/job-single/deadline.svg')}}" alt="jobBox"></div>
