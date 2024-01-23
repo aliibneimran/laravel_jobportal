@@ -1,12 +1,50 @@
 <header class="header sticky-bar">
     <div class="container">
       <div class="main-header">
+        @if(Auth::user())
         <div class="header-left">
           <div class="header-logo"><a class="d-flex" href="/"><img alt="jobBox" src="{{asset('assets/imgs/template/jobhub-logo.svg')}}"></a></div>
         </div>
         <div class="header-nav">
           <nav class="nav-main-menu">
-            <ul class="main-menu">
+            <ul class="main-menu"> 
+              <li><a class="active" href="/">Home</a></li>
+              <li><a href="jobs">Jobs</a></li>
+              <li class="has-children"><a href="companies">Recruiters</a>
+                <ul class="sub-menu">
+                  <li><a href="companies">Recruiters</a></li>
+                  <li><a href="company-details">Company Details</a></li>
+                </ul>
+              </li>
+              <li class="has-children"><a href="about">Pages</a>
+                <ul class="sub-menu">
+                  <li><a href="about">About Us</a></li>
+                  <li><a href="pricing">Pricing Plan</a></li>
+                  <li><a href="contact">Contact Us</a></li>
+                  <li><a href="reset-password">Reset Password</a></li>
+                  <li><a href="content-protected">Content Protected</a></li>
+                </ul>
+              </li>
+              <li class="has-children"><a href="blog">Blog</a>
+                <ul class="sub-menu">
+                  <li><a href="blog">Blog Grid</a></li>
+                  <li><a href="blog-details">Blog Single</a></li>
+                </ul>
+              </li>
+              <li class="dashboard"><a href="candidate-profile" target="_blank">Profile</a></li>
+            </ul>
+          </nav>
+          <div class="burger-icon burger-icon-white"><span class="burger-icon-top"></span><span class="burger-icon-mid"></span><span class="burger-icon-bottom"></span></div>
+        </div>
+        <div class="header-right">
+          <div class="block-signin"><a class="btn btn-danger hover-up" href="{{ route('logout') }}">Logout</a></div>
+        @else
+        <div class="header-left">
+          <div class="header-logo"><a class="d-flex" href="/"><img alt="jobBox" src="{{asset('assets/imgs/template/jobhub-logo.svg')}}"></a></div>
+        </div>
+        <div class="header-nav">
+          <nav class="nav-main-menu">
+            <ul class="main-menu"> 
               <li><a class="active" href="/">Home</a></li>
               <li><a href="jobs">Jobs</a></li>
               <li class="has-children"><a href="companies">Recruiters</a>
@@ -45,7 +83,8 @@
           <div class="burger-icon burger-icon-white"><span class="burger-icon-top"></span><span class="burger-icon-mid"></span><span class="burger-icon-bottom"></span></div>
         </div>
         <div class="header-right">
-          <div class="block-signin"><a class="text-link-bd-btom hover-up" href="register">Register</a><a class="btn btn-default btn-shadow ml-40 hover-up" href="signin">Sign in</a></div>
+          <div class="block-signin"><a class="btn btn-primary btn-shadow hover-up mx-2" href="{{ route('singin') }}">Sign in</a><a class="btn btn-success btn-shadow hover-up" href="{{ route('register') }}">Sign Up</a>
+        @endif
         </div>
       </div>
     </div>

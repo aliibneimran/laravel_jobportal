@@ -121,29 +121,29 @@ Route::get('industries/delete/{cid}', [IndustryController::class, 'destroy'])
     ->name('industries.delete');
 
 //Location
-Route::get('locations', [LocationController::class, 'index'])
-    ->name('locations.index');
-Route::get('locations/create', [LocationController::class, 'create'])
-    ->name('locations.create');
-Route::post('locations/store', [LocationController::class, 'store'])
-    ->name('locations.store');
-Route::get('locations/edit/{lid}', [LocationController::class, 'edit'])
-    ->name('locations.edit');
-Route::post('locations/update/{cld}', [LocationController::class, 'update'])
-    ->name('locations.update');
-Route::get('locations/delete/{lid}', [LocationController::class, 'destroy'])
-    ->name('locations.delete');
+// Route::get('locations', [LocationController::class, 'index'])
+//     ->name('locations.index');
+// Route::get('locations/create', [LocationController::class, 'create'])
+//     ->name('locations.create');
+// Route::post('locations/store', [LocationController::class, 'store'])
+//     ->name('locations.store');
+// Route::get('locations/edit/{lid}', [LocationController::class, 'edit'])
+//     ->name('locations.edit');
+// Route::post('locations/update/{cld}', [LocationController::class, 'update'])
+//     ->name('locations.update');
+// Route::get('locations/delete/{lid}', [LocationController::class, 'destroy'])
+//     ->name('locations.delete');
 
 //job
-Route::get('all-job', [JobController::class, 'index'])
-    ->name('jobs.index');
-Route::get('jobs/create', [JobController::class, 'create'])
-    ->name('jobs.create');
-Route::post('jobs/store', [JobController::class, 'store'])
-    ->name('jobs.store');
-Route::get('jobs/edit/{jid}', [JobController::class, 'edit'])
-    ->name('jobs.edit');
-Route::post('jobs/update/{jid}', [JobController::class, 'update'])
-    ->name('jobs.update');
-Route::get('jobs/delete/{jid}', [JobController::class, 'destroy'])
-    ->name('jobs.delete');
+// Route::get('all-job', [JobController::class, 'index'])
+//     ->name('jobs.index');
+// Route::get('jobs/create', [JobController::class, 'create'])
+//     ->name('jobs.create');
+// Route::post('jobs/store', [JobController::class, 'store'])
+//     ->name('jobs.store');
+// Route::get('jobs/edit/{jid}', [JobController::class, 'edit'])
+//     ->name('jobs.edit');
+// Route::post('jobs/update/{jid}', [JobController::class, 'update'])
+//     ->name('jobs.update');
+// Route::get('jobs/delete/{jid}', [JobController::class, 'destroy'])
+//     ->name('jobs.delete');

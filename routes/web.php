@@ -69,8 +69,8 @@ Route::get('/company-details', [FrontendCompanyDetailsController::class, 'index'
 Route::get('/candidates', [FrontendCandidateController::class, 'index']);
 Route::get('/candidate-details', [FrontendCandidateDetailsController::class, 'index']);
 Route::get('/candidate-profile', [FrontendCandidateProfileController::class, 'index']);
-// Route::get('/register',[FrontendRegisterController::class,'index']);
-// Route::get('/signin',[FrontendLoginController::class,'index']);
+Route::get('/register',[FrontendRegisterController::class,'index']);
+Route::get('/signin',[FrontendLoginController::class,'index']);
 
 //backend
 Route::get('/admin', [BackendHomeController::class, 'index']);
@@ -98,8 +98,10 @@ Route::prefix('jobseeker')->group(function (){
 });
 
 //Autentication
-Route::get('/admin',[AuthController::class,'login']);
+Route::get('/admin',[AuthController::class,'login'])->name('singin');
 Route::post('login',[AuthController::class,'AuthLogin'])->name('login');
+Route::get('register',[AuthController::class,'Register'])->name('register');
+Route::post('register',[AuthController::class,'AuthRegister'])->name('signup');
 Route::get('logout',[AuthController::class,'logout'])->name('logout');
 // Route::get('/admin/dashboard',[AdminController::class,'index']);
 

@@ -70,7 +70,7 @@
                                                     <div class="form-group">
                                                         <button class="btn btn-brand-1 hover-up w-100" type="submit" name="login">Login</button>
                                                     </div>
-                                                    <div class="text-muted text-center">Don't have an Account? <a href="register">Sign up</a></div>
+                                                    <div class="text-muted text-center">Don't have an Account? <a href="{{ route('register') }}">Sign up</a></div>
                                                 </form>
                                             </div>
                                         </div>

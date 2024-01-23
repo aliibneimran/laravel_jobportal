@@ -2,7 +2,7 @@
   <div class="container">
     <div class="main-header">
       <div class="header-left">
-        <div class="header-logo"><a class="d-flex" href="/admin"><img alt="jobBox" src="{{asset('backend/assets/imgs/page/dashboard/logo.svg')}}"></a></div><span class="btn btn-grey-small ml-10">{{(Auth()->user()->name)}} area</span>
+        <div class="header-logo"><a class="d-flex" href="/admin"><img alt="jobBox" src="{{asset('backend/assets/imgs/page/dashboard/logo.svg')}}"></a></div><span class="btn btn-grey-small ml-10">Company area</span>
       </div>
       <div class="header-search">
         <div class="box-search">
@@ -34,13 +34,13 @@
                 Guest
                 @endif
               </strong>
-              <div class="dropdown"><a class="font-xs color-text-paragraph-2 icon-down" id="dropdownProfile" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">{{(Auth()->user()->name)}}</a>
+              <div class="dropdown"><a class="font-xs color-text-paragraph-2 icon-down" id="dropdownProfile" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">Super Admin</a>
                 <ul class="dropdown-menu dropdown-menu-light dropdown-menu-end" aria-labelledby="dropdownProfile">
                   <li><a class="dropdown-item" href="profile">Profiles</a></li>
                   <li><a class="dropdown-item" href="my-resume">CV Manager</a></li>
                   <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <li><a href="{{ route('logout') }}" class="dropdown-item" type="submit">Log Out</a></li>
+                    <li><button class="dropdown-item" type="submit">Log Out</button></li>
                   </form>
                 </ul>
               </div>

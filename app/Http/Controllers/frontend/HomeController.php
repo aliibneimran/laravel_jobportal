@@ -14,8 +14,8 @@ class HomeController extends Controller
     public function index(){
         // $data['locations'] = Location::withCount('job')->get();
         $data['locations'] = Location::with('job')->get();
-        $data['jobs'] = Job::all();
-        $data['locations'] = Location::all();
+        $data['jobs'] = Job::latest()->take(3)->get();
+        $data['locations'] = Location::latest()->take(4)->get();
         $data['industries'] = Industry::all();
         $data['categories'] = Category::all();
         return view('frontend/home',$data);

@@ -45,7 +45,7 @@
                                                     </ul>
                                                 </div>
                                                 @endif
-                                                <form class="login-register text-start mt-20" action="{{ route('register') }}" method="POST">
+                                                <form class="login-register text-start mt-20" action="{{ route('signup') }}" method="POST">
                                                     @csrf
                                                     <div class="form-group">
                                                         <label class="form-label" for="input-1">Name *</label>
@@ -70,7 +70,7 @@
                                                     <div class="form-group">
                                                         <button class="btn btn-brand-1 hover-up w-100" type="submit" name="login">Register</button>
                                                     </div>
-                                                    <div class="text-muted text-center">Already have an account? <a href="login">Sign in</a></div>
+                                                    <div class="text-muted text-center">Already have an account? <a href="{{ route('singin') }}">Sign in</a></div>
                                                 </form>
                                             </div>
                                         </div>

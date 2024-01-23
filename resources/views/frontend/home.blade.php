@@ -150,7 +150,7 @@
                     <div class="box-cover-img">
                       <div class="content-bottom">
                         <h6 class="color-white mb-5">{{$item->name}}</h6>
-                        <p class="color-white font-xs"><span>123</span><span> Jobs Available</span></p>
+                        <p class="color-white font-xs"><span>{{ $item->job->sum('vacancy') }}</span><span> Jobs Available</span></p>
                       </div>
                     </div>
                   </a></div>
@@ -181,12 +181,9 @@
               <div class="informations"><a href="jobs-grid.html">
                   <h5>{{$item->name}}</h5>
                 </a>
-                <div class="row">
-                  <!-- @php
-                  $vacancyCount = $jobs->where('location_id', $item->id)->count();
-                  @endphp -->
+                <div class="row">                
                   <div class="col-lg-6 col-6"><span class="text-14 color-text-paragraph-2">{{ $item->job->sum('vacancy') }} Vacancy</span></div>
-                  <div class="col-lg-6 col-6 text-end"><span class="color-text-paragraph-2 text-14">120 companies</span></div>
+                  <div class="col-lg-6 col-6 text-end"><span class="color-text-paragraph-2 text-14"></span></div>
                 </div>
               </div>
             </div>
