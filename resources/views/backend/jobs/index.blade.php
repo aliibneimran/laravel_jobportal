@@ -30,8 +30,16 @@
                                     {{ session('msg') }}
                                 </div>
                                 @endif
-                                <div class="col-xl-6 col-lg-5"><span class="font-sm text-showing color-text-paragraph">Showing 41-60 of 944 jobs</span></div>
-                                <div class="col-xl-6 col-lg-7 text-lg-end mt-sm-15">
+                                <div class="col-xl-3 col-lg-3"><span class="font-sm text-showing color-text-paragraph">Showing 41-60 of 944 jobs</span></div>
+                                <div class="col-xl-4 col-lg-4">
+                                    <form method="GET">
+                                        <div class="input-group mb-3">
+                                          <input type="text" name="search" value="{{ request()->get('search') }}" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
+                                          <button class="btn btn-success" type="submit" id="button-addon2">Search</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-xl-5 col-lg-5 text-lg-end mt-sm-15">
                                     <div class="display-flex2">
                                         <div class="box-border mr-10"><span class="text-sortby">Show:</span>
                                             <div class="dropdown dropdown-sort">
