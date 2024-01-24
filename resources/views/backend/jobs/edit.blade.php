@@ -1,11 +1,11 @@
 @extends('backend.layouts.app')
 
-@section('title','Post A Job')
+@section('title','Edit Job')
 
 @section('content')
 <div class="box-heading">
     <div class="box-title">
-        <h3 class="mb-35">Post a Job</h3>
+        <h3 class="mb-35">Edit a Job</h3>
     </div>
     <div class="box-breadcrumb">
         <div class="breadcrumbs">
@@ -22,7 +22,6 @@
             <div class="container">
                 <div class="panel-white mb-30">
                     <div class="box-padding bg-postjob">
-                        <h5 class="icon-edu">Tell us about your role</h5>
                         <div class="row mt-30">
                             <div class="col-lg-12">
                                 <div class="row">

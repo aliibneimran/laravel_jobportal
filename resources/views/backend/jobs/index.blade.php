@@ -103,8 +103,8 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="jobs/edit/{{$item->id}}"><i class="fas fa-edit"></i></a>
-                                            <a href="jobs/delete/{{$item->id}}" onclick="return confirm('Are you sure to delete')"><i class="fas fa-trash-alt"></i></a>
+                                            <a href="{{route('jobs.edit',$item->id)}}"><i class="fas fa-edit"></i></a>
+                                            <a href="{{route('jobs.delete',$item->id)}}" onclick="return confirm('Are you sure to delete')"><i class="fas fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
                                     @endforeach

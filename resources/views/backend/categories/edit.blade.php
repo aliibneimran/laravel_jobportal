@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title','Add Category')
+@section('title','Edit Category')
 
 @section('content')
 <form action="{{ route('categories.update', $single->id) }}" method="POST">

@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title','Add Industries')
+@section('title','Edit Industries')
 
 @section('content')
 <form action="{{ route('industries.update', $single->id) }}" method="POST">

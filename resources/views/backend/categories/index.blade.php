@@ -21,8 +21,8 @@
                 <td>{{$no++}}</td>
                 <td>{{$item->name}}</td>
                 <td>
-                    <a href="catagories/edit/{{$item->id}}" class="m-2"><i class="fas fa-pen-to-square"></i></a>
-                    <a href="catagories/delete/{{$item->id}}" ><i class="fa-solid fa-trash"></i></a>
+                    <a href="{{route('categories.edit',$item->id)}}" class="m-2"><i class="fas fa-pen-to-square"></i></a>
+                    <a href="{{route('categories.delete',$item->id)}}" ><i class="fa-solid fa-trash"></i></a>
                 </td>
             </tr>
             @endforeach

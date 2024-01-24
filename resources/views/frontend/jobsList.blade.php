@@ -78,7 +78,7 @@
                                         <div class="right-info"><a class="name-job" href="company-details.html">LinkedIn</a><span class="location-small">{{$item->location->name}}</span></div>
                                     </div>
                                     <div class="card-block-info">
-                                        <h6><a href="/job/details/{{$item->id}}">{{$item->title}}</a></h6>
+                                        <h6><a href="{{route('job.details',$item->id)}}">{{$item->title}}</a></h6>
                                         <div class="mt-5"><span class="card-briefcase">{{$item->category->name}}</span><span class="card-time">{{$item->created_at}}</span></div>
                                         <p class="font-sm color-text-paragraph mt-15">{{ Str::words($item->description, $words = 20, $end = '...') }}</p>
                                         <div class="row">

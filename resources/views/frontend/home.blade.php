@@ -112,7 +112,7 @@
                     </div>
                   </div>
                   <div class="card-block-info">
-                    <h5><a href="/job/details/{{$item->id}}">{{$item->title}}</a></h5>
+                    <h5><a href="{{route('job.details',$item->id)}}">{{$item->title}}</a></h5>
                     <div class="mt-5"><span class="card-location mr-15">{{$item->location->name}}</span><span class="card-time">{{$item->created_at}}</span></div>
                     <div class="card-2-bottom mt-20">
                       <div class="row">

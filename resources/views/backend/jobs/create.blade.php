@@ -22,7 +22,6 @@
             <div class="container">
                 <div class="panel-white mb-30">
                     <div class="box-padding bg-postjob">
-                        <h5 class="icon-edu">Tell us about your role</h5>
                         <div class="row mt-30">
                             <div class="col-lg-12">
                                 <div class="row">
