@@ -15,6 +15,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/imgs/template/favicon.svg')}}">
   <link href="{{asset('assets/css/style.css?version=4.1')}}" rel="stylesheet">
   <title>@yield('title')</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -27,10 +28,18 @@
   </div>
   
   @include('frontend.layouts.header')
+
+  @if(session('success'))
+  <div class="alert alert-success">
+    {{ session('success') }}
+  </div> 
+  @endif
+  
   @yield('content')
   @include('frontend.layouts.footer')
 
   <script src="{{asset('assets/js/vendor/modernizr-3.6.0.min.js')}}"></script>
+  @yield('scripts')
   <script src="{{asset('assets/js/vendor/jquery-3.6.0.min.js')}}"></script>
   <script src="{{asset('assets/js/vendor/jquery-migrate-3.3.0.min.js')}}"></script>
   <script src="{{asset('assets/js/vendor/bootstrap.bundle.min.js')}}"></script>
@@ -44,6 +53,7 @@
   <script src="{{asset('assets/js/plugins/swiper-bundle.min.js')}}"></script>
   <script src="{{asset('assets/js/plugins/counterup.js')}}"></script>
   <script src="{{asset('assets/js/main.js?v=4.1')}}"></script>
+  
 </body>
 
 </html>

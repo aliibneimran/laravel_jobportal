@@ -72,6 +72,12 @@ Route::get('/candidate-profile', [FrontendCandidateProfileController::class, 'in
 Route::get('/register',[FrontendRegisterController::class,'index']);
 Route::get('/signin',[FrontendLoginController::class,'index']);
 
+//Cart
+Route::get('cart', [FrontendJobListController::class, 'cart'])->name('cart');
+Route::get('add-to-cart/{id}', [FrontendJobListController::class, 'addToCart'])->name('add.to.cart');
+Route::patch('update-cart', [FrontendJobListController::class, 'update'])->name('update.cart');
+Route::delete('remove-from-cart', [FrontendJobListController::class, 'remove'])->name('remove.from.cart');
+
 //backend
 Route::get('/admin', [BackendHomeController::class, 'index']);
 Route::get('/all-candidates', [BackendCandidateController::class, 'index']);
@@ -177,5 +183,6 @@ Route::post('jobs/update/{jid}', [JobController::class, 'update'])
     ->name('jobs.update');
 Route::get('jobs/delete/{jid}', [JobController::class, 'destroy'])
     ->name('jobs.delete');
+    
 
 require __DIR__ . '/auth.php';

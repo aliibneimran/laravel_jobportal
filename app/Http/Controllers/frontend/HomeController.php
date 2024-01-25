@@ -20,4 +20,6 @@ class HomeController extends Controller
         $data['categories'] = Category::all();
         return view('frontend/home',$data);
     }
+
+
 }

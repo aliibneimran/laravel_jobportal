@@ -35,6 +35,18 @@
                                     <form method="GET">
                                         <div class="input-group mb-3">
                                           <input type="text" name="search" value="{{ request()->get('search') }}" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
+                                          <select class="form-control" name="category">
+                                            <option value="">Select</option>
+                                            @foreach($categories as $cat)
+                                            <option value="{{$cat->id}}" {{old('category')==$cat->id?'selected':''}}>{{$cat->name}}</option>
+                                            @endforeach
+                                        </select>
+                                        <select class="form-control" name="location">
+                                            <option value="">Select</option>
+                                            @foreach($locations as $item)
+                                            <option value="{{$item->id}}" {{old('location')==$item->id?'selected':''}}>{{$item->name}}</option>
+                                            @endforeach
+                                        </select>
                                           <button class="btn btn-success" type="submit" id="button-addon2">Search</button>
                                         </div>
                                     </form>
@@ -66,6 +78,7 @@
                                 </div>
                             </div>
                         </div>
+                        @if(count($jobs)>0)
                         <div class="row">
                             <table class="table table-striped">
                                 <thead>
@@ -118,57 +131,6 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <!-- @foreach ($jobs as $item)
-                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12">
-                                <div class="card-grid-2 hover-up">
-                                    <div class="card-grid-2-image-left"><span class="flash"></span>
-                                        <div class="image-box"><img src="backend/assets/imgs/brands/brand-1.png" alt="jobBox"></div>
-                                        <div class="right-info"><a class="name-job" href="company-details.html">LinkedIn</a><span class="location-small">New York, US</span></div>
-                                    </div>
-                                    <div class="card-block-info">
-                                        <h6><a href="job-details.html">{{$item->title}}</a></h6>
-                                        <div class="mt-5"><span class="card-briefcase">Fulltime</span><span class="card-time">4<span> minutes ago</span></span></div>
-                                        <p class="font-sm color-text-paragraph mt-15">{{$item->description}}</p>
-                                        <div class="mt-30"><a class="btn btn-grey-small mr-5" href="jobs-grid.html">{{$item->category->name}}</a>
-                                        </div>
-                                        <div class="card-2-bottom mt-30">
-                                            <div class="row">
-                                                <div class="col-lg-7 col-7"><span class="card-text-price">$500</span><span class="text-muted">/Hour</span></div>
-                                                <div class="col-lg-5 col-5 text-end">
-                                                    <div class="btn btn-apply-now" data-bs-toggle="modal" data-bs-target="#ModalApplyJobForm">Apply now</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach -->
-
-                            <!-- Static Content -->
-                            <!-- <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12">
-                                <div class="card-grid-2 hover-up">
-                                    <div class="card-grid-2-image-left"><span class="flash"></span>
-                                        <div class="image-box"><img src="backend/assets/imgs/brands/brand-2.png" alt="jobBox"></div>
-                                        <div class="right-info"><a class="name-job" href="company-details.html">Adobe Ilustrator</a><span class="location-small">New York, US</span></div>
-                                    </div>
-                                    <div class="card-block-info">
-                                        <h6><a href="job-details.html">Full Stack Engineer</a></h6>
-                                        <div class="mt-5"><span class="card-briefcase">Part time</span><span class="card-time">5<span> minutes ago</span></span></div>
-                                        <p class="font-sm color-text-paragraph mt-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae architecto eveniet, dolor quo repellendus pariatur.</p>
-                                        <div class="mt-30"><a class="btn btn-grey-small mr-5" href="jobs-grid.html">React</a><a class="btn btn-grey-small mr-5" href="jobs-grid.html">NodeJS</a>
-                                        </div>
-                                        <div class="card-2-bottom mt-30">
-                                            <div class="row">
-                                                <div class="col-lg-7 col-7"><span class="card-text-price">$800</span><span class="text-muted">/Hour</span></div>
-                                                <div class="col-lg-5 col-5 text-end">
-                                                    <div class="btn btn-apply-now" data-bs-toggle="modal" data-bs-target="#ModalApplyJobForm">Apply now</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-
                         </div>
                         <div class="paginations">
                             <ul class="pager">
@@ -183,6 +145,9 @@
                                 <li><a class="pager-next" href="#"></a></li>
                             </ul>
                         </div>
+                        @else 
+                            <h1 class="text-center">No data</h1>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -43,7 +43,9 @@ class Job extends Model
             'title' => $this->title,
             'description' => $this->description,
             'salary' => $this->salary,
-            'tag' => $this->salary,
+            'tag' => $this->tag,
+            'category_id' => $this->category_id,
+            'location_id' => $this->location_id,
         ];
     }
 }
