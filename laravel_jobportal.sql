@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2024 at 08:20 AM
+-- Generation Time: Jan 26, 2024 at 07:45 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `laravel_project`
+-- Database: `laravel_jobportal`
 --
 
 -- --------------------------------------------------------
@@ -47,9 +47,23 @@ CREATE TABLE `admins` (
 
 CREATE TABLE `candidates` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `contact` varchar(20) NOT NULL,
+  `bio` text NOT NULL,
+  `cv` varchar(50) DEFAULT NULL,
+  `job_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `candidates`
+--
+
+INSERT INTO `candidates` (`id`, `name`, `email`, `contact`, `bio`, `cv`, `job_id`, `created_at`, `updated_at`) VALUES
+(3, 'vddbdb', 'imran@gmail.com', '01787515196', 'bbdbd', '1706198335.pdf', 4, '2024-01-25 09:58:55', '2024-01-25 09:58:55'),
+(4, 'Sohan', 'sohan@gmail.com', '0266268494949', 'grbdgngfng', '1706205046.pdf', 6, '2024-01-25 11:50:46', '2024-01-25 11:50:46');
 
 -- --------------------------------------------------------
 
@@ -157,7 +171,6 @@ CREATE TABLE `jobs` (
 --
 
 INSERT INTO `jobs` (`id`, `title`, `description`, `salary`, `image`, `tag`, `availability`, `vacancy`, `category_id`, `location_id`, `industry_id`, `created_at`, `updated_at`) VALUES
-(1, 'Laravel Developer', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 50000.00, '1705992990.png', '[\"Laravel\"]', 1, 10, 2, 8, 2, '2024-01-22 23:15:08', '2024-01-23 00:56:30'),
 (2, 'Vue development', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 40000.00, '1705993024.png', '[\"Vue\"]', 0, 12, 2, 7, 3, '2024-01-23 00:19:13', '2024-01-23 00:57:04'),
 (3, 'React Devloperer', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 100000.00, '1705993057.jpg', '[\"Laravel\",\"React\"]', 1, 8, 3, 6, 8, '2024-01-23 00:19:58', '2024-01-23 00:57:37'),
 (4, 'PHP Developer', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 500000.00, '1705990888.jpg', '[\"Laravel\",\"Vue\"]', 0, 10, 1, 1, 2, '2024-01-23 00:21:28', '2024-01-23 00:21:28'),
@@ -295,7 +308,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `role`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', 1, NULL, '$2y$12$2uZhjDaL2gHcXn2wB8eGeulLYPCQ9H/eVfxmmYWmA5C9.utGP5J4u', NULL, '2024-01-23 03:09:49', '2024-01-23 03:09:49'),
+(1, 'Admin', 'admin@gmail.com', 1, NULL, '$2y$12$2uZhjDaL2gHcXn2wB8eGeulLYPCQ9H/eVfxmmYWmA5C9.utGP5J4u', 'IOUF3GaWxgIngY9BmoTXULE6ftvYQ1GvfIXg0xtJ2F3hCrcd1Um0Y5z4jplH', '2024-01-23 03:09:49', '2024-01-23 03:09:49'),
 (2, 'Company', 'company@gmail.com', 2, NULL, '$2y$12$2uZhjDaL2gHcXn2wB8eGeulLYPCQ9H/eVfxmmYWmA5C9.utGP5J4u', NULL, '2024-01-23 03:09:49', '2024-01-23 03:09:49'),
 (3, 'Candidate', 'candidate@gmail.com', 3, NULL, '$2y$12$2uZhjDaL2gHcXn2wB8eGeulLYPCQ9H/eVfxmmYWmA5C9.utGP5J4u', NULL, '2024-01-23 03:09:49', '2024-01-23 03:09:49'),
 (4, 'Editor', 'editor@gmail.com', 4, NULL, '$2y$12$2uZhjDaL2gHcXn2wB8eGeulLYPCQ9H/eVfxmmYWmA5C9.utGP5J4u', NULL, '2024-01-23 03:09:49', '2024-01-23 03:09:49'),
@@ -403,7 +416,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `candidates`
 --
 ALTER TABLE `candidates`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `categories`
