@@ -5,12 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Laravel\Scout\Searchable;
 
 class Job extends Model
 {
     use HasFactory,Searchable;
     protected $fillable = ['title','description','salary','category_id','location_id','vacancy','industry_id','tag','image','availability'];
+    public function candidate():HasMany
+    {
+      return $this->hasMany(Candidate::class); 
+    }
     public function category():BelongsTo
     {
       return $this->belongsTo(Category::class); 
@@ -23,6 +28,7 @@ class Job extends Model
     {
       return $this->belongsTo(Industry::class); 
     }
+    
 
 
     public function setTagAttribute($value)

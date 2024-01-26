@@ -27,6 +27,8 @@
       
       <li> <a class="dashboard2" href="{{URL('all-job')}}"><img src="{{asset('backend/assets/imgs/page/dashboard/jobs.svg')}}" alt="jobBox"><span class="name">All Jobs</span></a>
       </li>
+      <li> <a class="dashboard2" href="{{URL('applicants')}}"><img src="{{asset('backend/assets/imgs/page/dashboard/jobs.svg')}}" alt="jobBox"><span class="name">Applicants</span></a>
+      </li>
       <li> <a class="dashboard2" href="/payments"><img src="{{asset('backend/assets/imgs/page/dashboard/credit-card.svg')}}" alt="jobBox"><span class="name">Payments</span></a>
       </li>
       <li> <a class="dashboard2" href="/profile"><img src="{{asset('backend/assets/imgs/page/dashboard/profiles.svg')}}" alt="jobBox"><span class="name">My Profiles</span></a>

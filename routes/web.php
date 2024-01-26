@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\JobController;
@@ -62,7 +63,8 @@ Route::middleware('auth')->group(function () {
 Route::get('/', [FrontendHomeController::class, 'index']);
 Route::get('/jobs', [FrontendJobListController::class, 'index']);
 
-Route::get('/job/details/{id}', [FrontendJobDetailsController::class, 'index'])->name('job.details');;
+Route::get('/job/details/{id}', [FrontendJobDetailsController::class, 'index'])->name('job.details');
+Route::post('/job/apply/{id}', [FrontendJobDetailsController::class, 'apply'])->name('apply');
 
 Route::get('/companies', [FrontendCompanyController::class, 'index']);
 Route::get('/company-details', [FrontendCompanyDetailsController::class, 'index']);
@@ -120,13 +122,16 @@ Route::group(['middleware'=>'company'],function(){
 
 });
 Route::group(['middleware'=>'candidate'],function(){
-    Route::get('candidate/dashboard',[DashboardController::class,'index']);
+    Route::get('candidate/profile',[FrontendHomeController::class,'index']);
 
 });
 Route::group(['middleware'=>'editor'],function(){
     Route::get('editor/dashboard',[DashboardController::class,'index']);
 
 });
+//Applicants
+Route::get('applicants', [ApplicantController::class, 'index'])
+    ->name('applicants');
 
 //Category
 Route::get('catagories', [CategoryController::class, 'index'])

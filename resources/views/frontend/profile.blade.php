@@ -64,35 +64,10 @@
                           <textarea class="form-control" rows="4">We are AliThemes , a creative and dedicated group of individuals who love web development almost as much as we love our customers. We are passionate team with the mission for achieving the perfection in web design.</textarea>
                         </div>
                         <div class="form-group">
-                          <label class="font-sm color-text-mutted mb-10">Personal website</label>
+                          <label class="font-sm color-text-mutted mb-10">Address</label>
                           <input class="form-control" type="url" value="https://alithemes.com">
                         </div>
-                        <div class="row">
-                          <div class="col-lg-6">
-                            <div class="form-group">
-                              <label class="font-sm color-text-mutted mb-10">Country</label>
-                              <input class="form-control" type="text" value="United States">
-                            </div>
-                          </div>
-                          <div class="col-lg-6">
-                            <div class="form-group">
-                              <label class="font-sm color-text-mutted mb-10">State</label>
-                              <input class="form-control" type="text" value="New York">
-                            </div>
-                          </div>
-                          <div class="col-lg-6">
-                            <div class="form-group">
-                              <label class="font-sm color-text-mutted mb-10">City</label>
-                              <input class="form-control" type="text" value="Mcallen">
-                            </div>
-                          </div>
-                          <div class="col-lg-6">
-                            <div class="form-group">
-                              <label class="font-sm color-text-mutted mb-10">Zip code</label>
-                              <input class="form-control" type="text" value="82356">
-                            </div>
-                          </div>
-                        </div>
+                        
                         <div class="border-bottom pt-10 pb-10 mb-30"></div>
                         <h6 class="color-orange mb-20">Change your password</h6>
                         <div class="row">

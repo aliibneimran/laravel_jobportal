@@ -13,7 +13,7 @@ class DashboardController extends Controller
         }else if(Auth::user()->role == 2){
             return view('company.dashboard'); 
         }else if(Auth::user()->role == 3){
-            return view('candidate.dashboard');
+            return view('/');
         }else if(Auth::user()->role == 4){
             return view('editor.dashboard'); 
         }

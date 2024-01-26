@@ -16,7 +16,7 @@
                                 <div class="mt-0 mb-15"><span class="card-briefcase">{{$jobs->category->name}}</span><span class="card-time">{{$jobs->created_at}}</span></div>
                             </div>
                             <div class="col-lg-4 col-md-12 text-lg-end">
-                                <div class="btn btn-apply-icon btn-apply btn-apply-big hover-up" data-bs-toggle="modal" data-bs-target="#ModalApplyJobForm">Apply now</div>
+                                <a class="btn btn-apply-icon btn-apply btn-apply-big hover-up" data-bs-toggle="modal" data-bs-target="#ModalApplyJobForm">Apply now</a>
                             </div>
                         </div>
                         <div class="border-bottom pt-10 pb-10"></div>
@@ -96,81 +96,11 @@
                             </ul>
                         </div>
                     </div>
-                    <!-- <div class="sidebar-border">
-                        <h6 class="f-18">Similar jobs</h6>
-                        <div class="sidebar-list-job">
-                            <ul>
-                                <li>
-                                    <div class="card-list-4 wow animate__animated animate__fadeIn hover-up">
-                                        <div class="image"><a href="job-details.html"><img src="assets/imgs/brands/brand-1.png" alt="jobBox"></a></div>
-                                        <div class="info-text">
-                                            <h5 class="font-md font-bold color-brand-1"><a href="job-details.html">{{$jobs->title}}</a></h5>
-                                            <div class="mt-0"><span class="card-briefcase">{{$jobs->category->name}}</span><span class="card-time"><span>{{$jobs->created_at}}</span><span> mins ago</span></span></div>
-                                            <div class="mt-5">
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <h6 class="card-price">{{$jobs->salary}}<span>/Hour</span></h6>
-                                                    </div>
-                                                    <div class="col-6 text-end"><span class="card-briefcase">{{$jobs->location->name}}</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>                              
-                            </ul>
-                        </div>
-                    </div> -->
-                    <!-- <div class="sidebar-border"> -->
-                        <!-- <h6 class="f-18">Tags</h6>
-                        @foreach($jobs as $tag)
-                        <div class="sidebar-list-job"><a class="btn btn-grey-small bg-14 mb-10 mr-5" href="jobs-grid.html">{{$tag}}</a>
-                        </div>
-                        @endforeach -->
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- <section class="section-box mt-50 mb-50">
-        <div class="container">
-            <div class="text-left">
-                <h2 class="section-title mb-10 wow animate__animated animate__fadeInUp">Featured Jobs</h2>
-                <p class="font-lg color-text-paragraph-2 wow animate__animated animate__fadeInUp">Get the latest news, updates and tips</p>
-            </div>
-            <div class="mt-50">
-                <div class="box-swiper style-nav-top">
-                    <div class="swiper-container swiper-group-4 swiper">
-                        <div class="swiper-wrapper pb-10 pt-5">
-                            <div class="swiper-slide">
-                                <div class="card-grid-2 hover-up wow animate__animated animate__fadeIn">
-                                    <div class="card-grid-2-image-left"><span class="flash"></span>
-                                        <div class="image-box"><img src="assets/imgs/brands/brand-6.png" alt="jobBox"></div>
-                                        <div class="right-info"><a class="name-job" href="company-details.html">Quora JSC</a><span class="location-small">{{$jobs->location->name}}</span></div>
-                                    </div>
-                                    <div class="card-block-info">
-                                        <h6><a href="job-details.html">{{$jobs->title}}</a></h6>
-                                        <div class="mt-5"><span class="card-briefcase">{{$jobs->category->name}}</span><span class="card-time">{{$jobs->created_at}}<span> minutes ago</span></span></div>
-                                        <p class="font-sm color-text-paragraph mt-15">{{$jobs->description}}</p>
-                                        @foreach($jobs as $tag)
-                                        <div class="mt-3"><a class="btn btn-grey-small mr-5" href="job-details.html">{{$tag}}</a>
-                                        </div>
-                                        @endforeach
-                                        <div class="card-2-bottom mt-30">
-                                            <div class="col-lg-7 col-7 m-auto"><span class="card-text-price">{{$jobs->salary}}</span><span class="text-muted">/Hour</span></div>
-                                            <div class="col-lg-4 col-4 m-auto p-2"><a class="btn btn-apply-now" href="job-details.html">Apply now</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-button-next swiper-button-next-4"></div>
-                    <div class="swiper-button-prev swiper-button-prev-4"></div>
-                </div>
-                <div class="text-center"><a class="btn btn-grey" href="#">Load more posts</a></div>
-            </div>
-        </div>
-    </section> -->
 
     <section class="section-box mt-50 mb-20">
         <div class="container">
@@ -193,3 +123,61 @@
     </section>
 </main>
 @endsection
+
+<div class="modal fade" id="ModalApplyJobForm" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content apply-job-form">
+        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-body pl-30 pr-30 pt-50">
+          <div class="text-center">
+            <p class="font-sm text-brand-2">Job Application </p>
+            <h2 class="mt-10 mb-5 text-brand-1 text-capitalize">Start your career today</h2>
+            <p class="font-sm text-muted mb-30">Please fill in your information and send it to the employer. </p>
+          </div>
+          @if ($errors->any())
+            <div class="alert alert-danger">
+              <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+              </ul>
+            </div>
+          @endif
+          <form class="login-register text-start mt-20 pb-30" action="{{route('apply',$jobs->id)}}" method="post" enctype="multipart/form-data">
+            @csrf
+            <input type="hidden" name="job_id" value="{{ $jobs->id }}">
+            <div class="form-group">
+              <label class="form-label" for="input-1">Full Name *</label>
+              <input class="form-control" id="input-1" type="text" name="name" placeholder="Steven Job">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="input-2">Email *</label>
+              <input class="form-control" id="input-2" type="email"  name="email" placeholder="stevenjob@gmail.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="number">Contact Number *</label>
+              <input class="form-control" id="number" type="text" name="contact" placeholder="(+01) 234 567 89">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="des">Description</label>
+              <input class="form-control" id="des" type="text"  name="bio" placeholder="Your description...">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="file">Upload Resume</label>
+              <input class="form-control" id="file" name="cv" type="file">
+            </div>
+            <div class="login_footer form-group d-flex justify-content-between">
+              <label class="cb-container">
+                <input type="checkbox"><span class="text-small">Agree our terms and policy</span><span class="checkmark"></span>
+              </label><a class="text-muted" href="contact">Lean more</a>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-default hover-up w-100" type="submit" name="apply">Apply Job</button>
+            </div>
+            <div class="text-muted text-center">Do you need support? <a href="contact">Contact Us</a></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

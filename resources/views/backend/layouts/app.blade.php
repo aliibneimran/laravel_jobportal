@@ -16,6 +16,10 @@
     <link href="{{asset('backend/assets/css/style.css')}}" rel="stylesheet">
   <link href="{{asset('backend/assets/simple-datatables/style.css')}}" rel="stylesheet">
 
+<!-- PDF.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+
+
     <title>@yield('title') </title>
   </head>
   <body>

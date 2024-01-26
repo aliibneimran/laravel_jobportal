@@ -9,12 +9,14 @@ use Illuminate\Http\Request;
 class CandidateProfileController extends Controller
 {
     public function index(){
-        $data['candidate'] = CandidateProfile::all();
+        // $data['candidate'] = CandidateProfile::all();
         return view('frontend/profile');
     }
     public function store(Request $request)
     {
-        $data = ['name'=> $request->name];
+        $data = [
+            'name'=> $request->name
+        ];
         if(CandidateProfile::insert($data)){
           return redirect('categories')->with('msg','Successfully Added');
         }

@@ -18,7 +18,7 @@ class AuthController extends Controller
             }else if(Auth::user()->role == 2){
                 return redirect('company/dashboard'); 
             }else if(Auth::user()->role == 3){
-                return redirect('candidate/dashboard');
+                return redirect('/');
             }else if(Auth::user()->role == 4){
                 return redirect('editor/dashboard'); 
             }  
@@ -34,7 +34,7 @@ class AuthController extends Controller
             }else if(Auth::user()->role == 2){
                 return redirect('company/dashboard'); 
             }else if(Auth::user()->role == 3){
-                return redirect('candidate/dashboard');
+                return redirect('/');
             }else if(Auth::user()->role == 4){
                 return redirect('editor/dashboard'); 
             }
