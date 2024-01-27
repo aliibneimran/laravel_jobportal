@@ -188,6 +188,9 @@ Route::post('jobs/update/{jid}', [JobController::class, 'update'])
     ->name('jobs.update');
 Route::get('jobs/delete/{jid}', [JobController::class, 'destroy'])
     ->name('jobs.delete');
-    
+
+
+
+
 
 require __DIR__ . '/auth.php';
