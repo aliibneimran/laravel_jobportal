@@ -27,6 +27,7 @@ use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
 use App\Http\Controllers\frontend\JobDetailsController as FrontendJobDetailsController;
 use App\Http\Controllers\frontend\JobListController as FrontendJobListController;
 use App\Http\Controllers\frontend\LoginController as FrontendRegisterController;
+use App\Http\Controllers\frontend\ProfileController as FrontendProfileController;
 use App\Http\Controllers\frontend\RegisterController as FrontendLoginController;
 use App\Http\Controllers\IndustryController;
 use App\Http\Controllers\JobSeekerController;
@@ -70,9 +71,14 @@ Route::get('/companies', [FrontendCompanyController::class, 'index']);
 Route::get('/company-details', [FrontendCompanyDetailsController::class, 'index']);
 Route::get('/candidates', [FrontendCandidateController::class, 'index']);
 Route::get('/candidate-details', [FrontendCandidateDetailsController::class, 'index']);
-Route::get('/candidate-profile', [FrontendCandidateProfileController::class, 'index']);
+// Route::get('/candidate-profile', [FrontendCandidateProfileController::class, 'index']);
 Route::get('/register',[FrontendRegisterController::class,'index']);
 Route::get('/signin',[FrontendLoginController::class,'index']);
+
+
+// Route::resource('/candidate-profile', FrontendProfileController::class);
+
+
 
 //Cart
 Route::get('cart', [FrontendJobListController::class, 'cart'])->name('cart');
@@ -121,10 +127,15 @@ Route::group(['middleware'=>'company'],function(){
     Route::get('company/dashboard',[DashboardController::class,'index']);
 
 });
-Route::group(['middleware'=>'candidate'],function(){
-    Route::get('candidate/profile',[FrontendHomeController::class,'index']);
-
+// Candidate
+Route::group(['middleware' => 'candidate'], function () {
+    Route::get('/candidate-profile', [FrontendProfileController::class, 'index']);
+    Route::get('/candidate-profile/create', [FrontendProfileController::class, 'create'])->name('create.profile');
+    Route::post('/candidate-profile/store', [FrontendProfileController::class, 'store'])->name('store.profile');
+    Route::get('/candidate-profile/edit/{id}', [FrontendProfileController::class, 'edit'])->name('edit.profile');
+    Route::post('/candidate-profile/update/{id}', [FrontendProfileController::class, 'update'])->name('update.profile');
 });
+
 Route::group(['middleware'=>'editor'],function(){
     Route::get('editor/dashboard',[DashboardController::class,'index']);
 

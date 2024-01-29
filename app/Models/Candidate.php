@@ -14,4 +14,5 @@ class Candidate extends Model
       return $this->belongsTo(Job::class); 
     }
     protected $fillable = ['name','email','contact','bio','cv','job_id'];
+    
 }

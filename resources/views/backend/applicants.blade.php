@@ -25,7 +25,7 @@
                 <td>{{$item->email}}</td>
                 <td>{{$item->contact}}</td>
                 <td>
-                    <a href="{{$item->id}}" class="view-cv-link" data-bs-toggle="modal" data-bs-target="#fileModal" data-cv="{{ $item->cv }}"><i class="fa-solid fa-eye"></i></a>
+                    <a href="{{$item->id }}" class="view-cv-link" data-bs-toggle="modal" data-bs-target="#fileModal" data-cv="{{ $item->cv }}"><i class="fa-solid fa-eye"></i></a>
 
                 </td>
                 <td>

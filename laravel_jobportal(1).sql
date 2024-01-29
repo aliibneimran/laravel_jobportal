@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2024 at 08:15 AM
+-- Generation Time: Jan 28, 2024 at 07:58 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `laravel_project`
+-- Database: `laravel_jobportal`
 --
 
 -- --------------------------------------------------------
@@ -64,6 +64,31 @@ CREATE TABLE `candidates` (
 INSERT INTO `candidates` (`id`, `name`, `email`, `contact`, `bio`, `cv`, `job_id`, `created_at`, `updated_at`) VALUES
 (3, 'vddbdb', 'imran@gmail.com', '01787515196', 'bbdbd', '1706198335.pdf', 4, '2024-01-25 09:58:55', '2024-01-25 09:58:55'),
 (4, 'Sohan', 'sohan@gmail.com', '0266268494949', 'grbdgngfng', '1706205046.pdf', 6, '2024-01-25 11:50:46', '2024-01-25 11:50:46');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `candidate_profiles`
+--
+
+CREATE TABLE `candidate_profiles` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `contact` varchar(20) NOT NULL,
+  `bio` text NOT NULL,
+  `address` varchar(200) NOT NULL,
+  `photo` varchar(50) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `status` tinyint(4) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `candidate_profiles`
+--
+
+INSERT INTO `candidate_profiles` (`id`, `contact`, `bio`, `address`, `photo`, `user_id`, `status`, `created_at`, `updated_at`) VALUES
+(2, '01787515196', 'We are AliThemes , a creative and dedicated group of individuals who love web development almost as much as we love our customers. We are passionate team with the mission for achieving the perfection in web design.', 'https://alithemes.com', '1706465901.jpg', 5, NULL, '2024-01-28 12:18:21', '2024-01-28 12:18:21');
 
 -- --------------------------------------------------------
 
@@ -176,24 +201,6 @@ INSERT INTO `jobs` (`id`, `title`, `description`, `salary`, `image`, `tag`, `ava
 (4, 'PHP Developer', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 500000.00, '1705990888.jpg', '[\"Laravel\",\"Vue\"]', 0, 10, 1, 1, 2, '2024-01-23 00:21:28', '2024-01-23 00:21:28'),
 (5, 'Java Developer', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 40000.00, '1705993089.jpg', '[\"Angular\"]', 0, 21, 3, 5, 4, '2024-01-23 00:23:19', '2024-01-23 00:58:09'),
 (6, 'C++  Developer', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 40000.00, '1705991040.jpg', '[\"Vue\",\"Angular\"]', 1, 10, 1, 3, 2, '2024-01-23 00:24:00', '2024-01-23 00:24:00');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `job_seekers`
---
-
-CREATE TABLE `job_seekers` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `status` tinyint(4) DEFAULT 0,
-  `remember_token` varchar(100) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -332,6 +339,12 @@ ALTER TABLE `candidates`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `candidate_profiles`
+--
+ALTER TABLE `candidate_profiles`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
@@ -361,13 +374,6 @@ ALTER TABLE `industries`
 --
 ALTER TABLE `jobs`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `job_seekers`
---
-ALTER TABLE `job_seekers`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `job_seekers_email_unique` (`email`);
 
 --
 -- Indexes for table `locations`
@@ -419,6 +425,12 @@ ALTER TABLE `candidates`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `candidate_profiles`
+--
+ALTER TABLE `candidate_profiles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
@@ -447,12 +459,6 @@ ALTER TABLE `industries`
 --
 ALTER TABLE `jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `job_seekers`
---
-ALTER TABLE `job_seekers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `locations`

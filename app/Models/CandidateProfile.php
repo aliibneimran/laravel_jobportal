@@ -4,9 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class CandidateProfile extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','email','contact','bio','country','city','image'];
+    protected $fillable = ['name','email','contact','bio','address','photo','user_id'];
+    public function user():BelongsTo
+    {
+      return $this->belongsTo(User::class); 
+    }
 }

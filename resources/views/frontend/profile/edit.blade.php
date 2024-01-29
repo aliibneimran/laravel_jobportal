@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title','Profile')
+@section('title','Create Profile')
 
 @section('content')
 <main class="main">
@@ -41,34 +41,36 @@
                     <h3 class="mt-0 mb-15 color-brand-1">My Account</h3><a class="font-md color-text-paragraph-2" href="#">Update your profile</a>
 
 
-                  <form action="" method="post"></form>
+                  <form action="" method="post" action="{{route('update.profile',$profile->id)}}" enctype="multipart/form-data">
                     <div class="mt-35 mb-40 box-info-profie">
-                      <div class="image-profile"><img src="assets/imgs/page/candidates/candidate-profile.png" alt="jobbox"></div><a class="btn btn-apply">Upload Avatar</a><a class="btn btn-link">Delete</a>
+                      <div class="image-profile"><img src="assets/imgs/page/candidates/candidate-profile.png" alt="jobbox">
+                      </div>
+                      <input type="file" name="photo">
                     </div>
                     <div class="row form-contact">
                       <div class="col-lg-6 col-md-12">
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                           <label class="font-sm color-text-mutted mb-10">Full Name *</label>
-                          <input class="form-control" type="text" value="Steven Job">
+                          <input class="form-control" type="text" value="" name="name">
                         </div>
                         <div class="form-group">
                           <label class="font-sm color-text-mutted mb-10">Email *</label>
-                          <input class="form-control" type="text" value="stevenjob@gmail.com">
-                        </div>
+                          <input class="form-control" type="text" value="stevenjob@gmail.com" name="email">
+                        </div> --}}
                         <div class="form-group">
                           <label class="font-sm color-text-mutted mb-10">Contact number</label>
-                          <input class="form-control" type="text" value="01 - 234 567 89">
+                          <input class="form-control" type="text" value="{{ old('contact', $profile->contact) }}" name="contact">
                         </div>
                         <div class="form-group">
                           <label class="font-sm color-text-mutted mb-10">Bio</label>
-                          <textarea class="form-control" rows="4">We are AliThemes , a creative and dedicated group of individuals who love web development almost as much as we love our customers. We are passionate team with the mission for achieving the perfection in web design.</textarea>
+                          <textarea class="form-control" rows="4" name="bio">We are AliThemes , a creative and dedicated group of individuals who love web development almost as much as we love our customers. We are passionate team with the mission for achieving the perfection in web design.</textarea>
                         </div>
                         <div class="form-group">
                           <label class="font-sm color-text-mutted mb-10">Address</label>
-                          <input class="form-control" type="url" value="https://alithemes.com">
+                          <input class="form-control" type="url" value="https://alithemes.com" name="address">
                         </div>
                         
-                        <div class="border-bottom pt-10 pb-10 mb-30"></div>
+                        {{-- <div class="border-bottom pt-10 pb-10 mb-30"></div>
                         <h6 class="color-orange mb-20">Change your password</h6>
                         <div class="row">
                           <div class="col-lg-6">
@@ -89,7 +91,7 @@
                           <label class="lbl-agree font-xs color-text-paragraph-2">
                             <input class="lbl-checkbox" type="checkbox" value="1" name="availability[]">Available for freelancers
                           </label>
-                        </div>
+                        </div> --}}
                         <div class="box-button mt-15">
                           <button class="btn btn-apply-big font-md font-bold" type="submit">Save All Changes</button>
                         </div>
@@ -491,5 +493,5 @@
           </div>
         </div>
       </section>
-    </main>
+</main>
 @endsection
